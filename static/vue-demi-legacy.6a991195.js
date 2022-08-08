@@ -1,0 +1,1 @@
+System.register(["./vue-legacy.4ed92305.js"],(function(e){"use strict";return{setters:[function(){}],execute:function(){e({d:function(e,t){Array.isArray(e)?e.splice(t,1):delete e[t]},s:function(e,t,r){return Array.isArray(e)?(e.length=Math.max(e.length,t),e.splice(t,1,r),r):(e[t]=r,r)}}),e("i",!1)}}}));
