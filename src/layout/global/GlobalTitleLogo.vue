@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="SysStore.SysConfig.layoutMode === 'LEFT_MENU_MODE' || SysStore.SysConfig.layoutMode === 'LEFT_MENU_MIX_MODE'"
+    v-if="SysStore.SysConfig.layoutMode === 'LEFT_MENU_MODE'"
     class="flex justify-center items-center w-full h-[60px]"
   >
     <img :src="getImageUrl('SysLogo.png')" :alt="SysTitle" class="w-[2rem]" />
@@ -18,14 +18,14 @@
 </template>
 
 <script setup lang="ts">
-  import { UseSysStore } from '@/store/modules/SysStore'
-  import { getImageUrl } from '@/utils/common/AsyncImportImg'
+import { UseSysStore } from '@/store/modules/SysStore'
+import { getImageUrl } from '@/utils/common/AsyncImportImg'
 
-  const SysStore = UseSysStore()
+const SysStore = UseSysStore()
 
-  interface GlobalTitleLogoProps {
-    SysTitle: string
-  }
+interface GlobalTitleLogoProps {
+  SysTitle: string
+}
 
-  defineProps<GlobalTitleLogoProps>()
+defineProps<GlobalTitleLogoProps>()
 </script>

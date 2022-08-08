@@ -16,15 +16,15 @@ import { GlobFileModule } from './GlobModules'
  * @returns
  */
 const transformVAdminRouteToRouteRecordRaw = (VAdminRoutes: SysRouterMenu.VAdminRoute[]): RouteRecordRaw[] => {
-  const NeedHandleVAdminRoutes = lodash.cloneDeep(VAdminRoutes)
+	const NeedHandleVAdminRoutes = lodash.cloneDeep(VAdminRoutes)
 
-  const SysRouterMenuRecordRawArr: RouteRecordRaw[] = []
+	const SysRouterMenuRecordRawArr: RouteRecordRaw[] = []
 
-  NeedHandleVAdminRoutes.forEach(VAdminRoute => {
-    // eslint-disable-next-line no-use-before-define
-    SysRouterMenuRecordRawArr.push(transform(VAdminRoute))
-  })
-  return SysRouterMenuRecordRawArr
+	NeedHandleVAdminRoutes.forEach(VAdminRoute => {
+		// eslint-disable-next-line no-use-before-define
+		SysRouterMenuRecordRawArr.push(transform(VAdminRoute))
+	})
+	return SysRouterMenuRecordRawArr
 }
 
 /**
@@ -33,19 +33,20 @@ const transformVAdminRouteToRouteRecordRaw = (VAdminRoutes: SysRouterMenu.VAdmin
  * @returns
  */
 const transform = (VAdminRoute: SysRouterMenu.VAdminRoute) => {
-  // @ts-ignore
-  const CurrentRouteRecordRaw: RouteRecordRaw = {
-    path: VAdminRoute.path,
-    name: VAdminRoute.name,
-    meta: VAdminRoute.meta,
-    component: (VAdminRoute.component && GlobFileModule(VAdminRoute.component)) || PageView404, // 如果定义的路由路径在项目页面文件目录中不存在则返回404页面
-    redirect: VAdminRoute.redirect && (VAdminRoute.redirect as RouteRecordRedirectOption)
-  }
-  if (VAdminRoute.children) {
-    CurrentRouteRecordRaw.children = transformVAdminRouteToRouteRecordRaw(VAdminRoute.children)
-  }
+	// @ts-ignore
+	const CurrentRouteRecordRaw: RouteRecordRaw = {
+		path: VAdminRoute.path,
+		name: VAdminRoute.name,
+		meta: VAdminRoute.meta,
+		// 路由路径在项目的文件目录  不存在则返回404页面
+		component: (VAdminRoute.component && GlobFileModule(VAdminRoute.component)) || PageView404,
+		redirect: VAdminRoute.redirect && (VAdminRoute.redirect as RouteRecordRedirectOption)
+	}
+	if (VAdminRoute.children) {
+		CurrentRouteRecordRaw.children = transformVAdminRouteToRouteRecordRaw(VAdminRoute.children)
+	}
 
-  return CurrentRouteRecordRaw
+	return CurrentRouteRecordRaw
 }
 
 export default transformVAdminRouteToRouteRecordRaw

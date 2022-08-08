@@ -28,6 +28,7 @@ const routerInstance = createRouter({
 /**
  * 全局路由守卫
  */
+//  前置守卫
 routerInstance.beforeEach(async (to, from, next) => {
 	// 进度条开始
 	NProgress.start()
@@ -35,6 +36,7 @@ routerInstance.beforeEach(async (to, from, next) => {
 	await routeMenuHandleProcess(to, from, next, routerInstance)
 })
 
+// 后置钩子
 routerInstance.afterEach(async () => {
 	// 进度条结束
 	NProgress.done()

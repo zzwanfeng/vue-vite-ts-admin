@@ -1,6 +1,7 @@
 <template>
   <!-- 菜单标签页记录 -->
   <GlobalTagPageRecord></GlobalTagPageRecord>
+
   <router-view v-slot="{ Component, route }" v-if="!SysStore.SysConfig.isNeedReload">
     <transition :name="SysStore.SysConfig.pageTransition" mode="out-in" appear>
       <keep-alive v-if="route.meta.cache == null || route.meta.cache"
@@ -21,6 +22,7 @@
       ></component>
     </transition>
   </router-view>
+
   <!-- 重新加载中...... -->
   <el-container
     v-else

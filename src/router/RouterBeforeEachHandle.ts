@@ -44,6 +44,7 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
 
 	// 2. 系统异步路由
 	let VAdminAsyncRouters: SysRouterMenu.VAdminRoute[] = []
+	// 根据项目业务修改
 	if (handleSysPermission === 'STATIC_PERMISSION') {
 		// 前端静态异步路由表
 		VAdminAsyncRouters = lodash.cloneDeep(BusinessRoutes)
@@ -54,13 +55,13 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
 		VAdminAsyncRouters = lodash.cloneDeep(BusinessRoutes)
 	}
 
-	// 过滤好的VAdmin异步路由
+	// 过滤好的VAdmin异步(业务)路由
 	const FilterSuccessVAdminAsyncRouters = filterAsyncVAdminRoute(VAdminAsyncRouters, Permissions)
 
 	// 将所有路由表 转换为 VueRouter 路由表 RouteRecordRaw[]
 	const TransformToAsyncRouters = transformVAdminRouteToRouteRecordRaw(FilterSuccessVAdminAsyncRouters)
-
 	const TransformToConstantRouters = transformVAdminRouteToRouteRecordRaw(BasicRoutes)
+
 
 	// 3. 挂载路由
 	TransformToAsyncRouters.forEach(route => {
@@ -107,11 +108,12 @@ export default async (
 	const LocalUserToken = getLocalKey('VAdminToken')?.trim()
 
 	/**
-	 * 通过 isAddAsyncRouter 来控制是否第一次登陆后添加了动态路由
+	 * 通过 isAddAsyncRouter 来控制 第一次登陆和刷新页面后 是否添加了动态路由
 	 * 注意：next({ path: to.path, replace: false }) 和 next()的理解
 	 */
 
 	if (LocalUserToken && LocalUserToken !== '') {
+
 		// 1. 有Token
 		if (from.name === 'Login' && to.name !== 'Login') {
 			// 1.1 第一次从登录页跳转的情况
