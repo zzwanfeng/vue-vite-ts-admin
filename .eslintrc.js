@@ -44,4 +44,3 @@ module.exports = {
 		'guard-for-in': 'off',
 		useTabs: false
 	}
-}

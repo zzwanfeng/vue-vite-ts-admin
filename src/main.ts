@@ -8,7 +8,7 @@ import { initStore } from '@/store'
 import initStyle from '@/style'
 import { initDirective } from './directives'
 
-import GlobalConfig from '@/config/GlobalConfig/Index'
+// import GlobalConfig from '@/config/GlobalConfig/Index'
 
 /**
  * 初始化应用
@@ -16,7 +16,7 @@ import GlobalConfig from '@/config/GlobalConfig/Index'
 const initApplication = async () => {
 	// 创建实例
 	const app = createApp(App)
-	app.config.globalProperties.$GlobalConfig = GlobalConfig;
+	// app.config.globalProperties.$GlobalConfig = GlobalConfig;
 
 	// ElementPlus
 	app.use(ElementPlus, {

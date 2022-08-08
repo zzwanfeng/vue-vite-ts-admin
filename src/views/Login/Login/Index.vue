@@ -151,7 +151,7 @@ const onHandleLogin = async (FormRef: FormInstance | undefined) => {
     // 校验成功 进行登录
     const UserToken = await userLoginApi(LoginModel.username, LoginModel.password)
     if (UserToken) {
-      setLocalKey('token', UserToken)
+      setLocalKey('VAdminToken', UserToken)
       // 登录后台系统
       router.push({ name: 'Home' })
     }

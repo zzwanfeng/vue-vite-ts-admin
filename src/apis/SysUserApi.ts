@@ -45,7 +45,7 @@ export const userInfoApi = async () => {
     url: '/user/info',
     method: 'post',
     headers: {
-      token: getLocalKey('token') as string
+      token: getLocalKey('VAdminToken') as string
     }
   })
   if (response.code === 200) {
@@ -59,11 +59,11 @@ export const userInfoApi = async () => {
  * @returns
  */
 export const userAsyncRouters = async () => {
-  const response = await $http.YPlusRequest<SysConfig.HttpResponse<SysRouterMenu.VAdmireRoute[] | undefined>>({
+  const response = await $http.YPlusRequest<SysConfig.HttpResponse<SysRouterMenu.VAdminRoute[] | undefined>>({
     url: '/user/asyncRouters',
     method: 'post',
     headers: {
-      token: getLocalKey('token') as string
+      token: getLocalKey('VAdminToken') as string
     }
   })
   if (response.code === 200) {

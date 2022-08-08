@@ -11,13 +11,14 @@ import { SysRouterMenu } from 'types/SysRouterMenu'
 
 import { UseSysStore } from '@/store/modules/SysStore'
 import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
-import { SysBaseConfig } from '@/SysBasicConfig'
+import { SysBaseConfig } from '@/config/GlobalConfig/Index'
+
 
 import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
 // 处理路由的相关函数
-import { filterAsyncVAdmireRoute, mountRoute } from './utils/HandleAsyncVAdmireRoute'
-import transformVAdmireRouteToRouteRecordRaw from './utils/TransformVAdmireRoute'
+import { filterAsyncVAdminRoute, mountRoute } from './utils/HandleAsyncVAdminRoute'
+import transformVAdminRouteToRouteRecordRaw from './utils/TransformVAdminRoute'
 import createSysMenuRecord from './utils/CreateSysMenu'
 
 // 所有的系统路由
@@ -42,24 +43,24 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
 	const handleSysPermission = SysStore.SysBaseConfig.handleSysPermission as SysBasicConfig.SysHandlePermission
 
 	// 2. 系统异步路由
-	let VAdmireAsyncRouters: SysRouterMenu.VAdmireRoute[] = []
+	let VAdminAsyncRouters: SysRouterMenu.VAdminRoute[] = []
 	if (handleSysPermission === 'STATIC_PERMISSION') {
 		// 前端静态异步路由表
-		VAdmireAsyncRouters = lodash.cloneDeep(BusinessRoutes)
+		VAdminAsyncRouters = lodash.cloneDeep(BusinessRoutes)
 	} else if (handleSysPermission === 'DYNAMIC_PERMISSION') {
-		VAdmireAsyncRouters = await SysStore.getUserAsyncRouterBasicServe()
+		VAdminAsyncRouters = await SysStore.getUserAsyncRouterBasicServe()
 	} else {
 		// 前端静态异步路由表
-		VAdmireAsyncRouters = lodash.cloneDeep(BusinessRoutes)
+		VAdminAsyncRouters = lodash.cloneDeep(BusinessRoutes)
 	}
 
-	// 过滤好的VAdmire异步路由
-	const FilterSuccessVAdmireAsyncRouters = filterAsyncVAdmireRoute(VAdmireAsyncRouters, Permissions)
+	// 过滤好的VAdmin异步路由
+	const FilterSuccessVAdminAsyncRouters = filterAsyncVAdminRoute(VAdminAsyncRouters, Permissions)
 
 	// 将所有路由表 转换为 VueRouter 路由表 RouteRecordRaw[]
-	const TransformToAsyncRouters = transformVAdmireRouteToRouteRecordRaw(FilterSuccessVAdmireAsyncRouters)
+	const TransformToAsyncRouters = transformVAdminRouteToRouteRecordRaw(FilterSuccessVAdminAsyncRouters)
 
-	const TransformToConstantRouters = transformVAdmireRouteToRouteRecordRaw(BasicRoutes)
+	const TransformToConstantRouters = transformVAdminRouteToRouteRecordRaw(BasicRoutes)
 
 	// 3. 挂载路由
 	TransformToAsyncRouters.forEach(route => {
@@ -68,9 +69,9 @@ const routeMenuHandleProcess = async (SysStore: any, SysRouteMenuStore: any, Rou
 	// 4. 生成菜单
 	const CreateSuccessSysMenuRecord = createSysMenuRecord([...TransformToConstantRouters, ...TransformToAsyncRouters])
 	// 5. 初始化相关状态管理
-	SysRouteMenuStore.ConstantVAdmireRouters = BasicRoutes
-	SysRouteMenuStore.AsyncVAdmireRouters = BusinessRoutes
-	SysRouteMenuStore.MountedAsyncVAdmireRouters = FilterSuccessVAdmireAsyncRouters
+	SysRouteMenuStore.ConstantVAdminRouters = BasicRoutes
+	SysRouteMenuStore.AsyncVAdminRouters = BusinessRoutes
+	SysRouteMenuStore.MountedAsyncVAdminRouters = FilterSuccessVAdminAsyncRouters
 	SysRouteMenuStore.AllRouterRecord = [...TransformToConstantRouters, ...TransformToAsyncRouters]
 	SysRouteMenuStore.AllConstantRouterRecord = TransformToConstantRouters
 	SysRouteMenuStore.AllAsyncRouterRecord = TransformToAsyncRouters
@@ -103,7 +104,7 @@ export default async (
 	const SysRouteMenuStore = UseSysRouteMenuStore()
 
 	// 用户Token
-	const LocalUserToken = getLocalKey('token')?.trim()
+	const LocalUserToken = getLocalKey('VAdminToken')?.trim()
 
 	/**
 	 * 通过 isAddAsyncRouter 来控制是否第一次登陆后添加了动态路由
@@ -112,23 +113,26 @@ export default async (
 
 	if (LocalUserToken && LocalUserToken !== '') {
 		// 1. 有Token
-		if (from.name === 'LoginIndex' && to.name !== 'LoginIndex') {
+		if (from.name === 'Login' && to.name !== 'Login') {
 			// 1.1 第一次从登录页跳转的情况
 			if (!SysRouteMenuStore.IsAddAsyncRouter) {
 				await routeMenuHandleProcess(SysStore, SysRouteMenuStore, RouterInstance)
 				SysRouteMenuStore.IsAddAsyncRouter = true
 				next({ path: to.fullPath, replace: true })
+				return
 			}
-		} else if (from.name === undefined && to.name !== 'LoginIndex') {
+		} else if (from.name === undefined && to.name !== 'Login') {
 			// 1.2 刷新页面的情况
 			if (!SysRouteMenuStore.IsAddAsyncRouter) {
 				await routeMenuHandleProcess(SysStore, SysRouteMenuStore, RouterInstance)
 				SysRouteMenuStore.IsAddAsyncRouter = true
 				next({ path: to.fullPath, replace: true })
+				return
 			}
-		} else if (to.name === 'LoginIndex') {
+		} else if (to.name === 'Login') {
 			// 1.3 想手动跳转登录页，返回指定页面
-			next({ name: 'TestIndex' })
+			next({ name: 'Login' })
+			return
 		}
 
 		// 挂载404通用路由 只在系统第一次进行挂载即可
@@ -145,6 +149,6 @@ export default async (
 		const isAccess = whiteRouteByName.includes(to.name as string)
 		// 2.2 如果跳转的页面是配置了白名单的，则放行，否则强制跳转登录页面
 		// eslint-disable-next-line no-unused-expressions
-		isAccess ? next() : next({ name: 'LoginIndex' })
+		isAccess ? next() : next({ name: 'Login' })
 	}
 }

@@ -1,9 +1,9 @@
 import type { SysRouterMenu } from 'types/SysRouterMenu'
 
-const BasicRoutes: SysRouterMenu.VAdmireRoute[] = [
+const BasicRoutes: SysRouterMenu.VAdminRoute[] = [
 	{
 		path: '/Login',
-		name: 'LoginIndex',
+		name: 'Login',
 		component: '@/views/Login/Login/Index.vue',
 		meta: {
 			label: '登录',
@@ -60,7 +60,7 @@ const BasicRoutes: SysRouterMenu.VAdmireRoute[] = [
 
 export default BasicRoutes
 
-export const Redirect404Router: SysRouterMenu.VAdmireRoute = {
+export const Redirect404Router: SysRouterMenu.VAdminRoute = {
 	path: '/:catchAll(.*)',
 	name: '404',
 	redirect: '/404',

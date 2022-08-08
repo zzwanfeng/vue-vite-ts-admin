@@ -2,11 +2,11 @@
   <div>
     <el-card class="box-card" header="" :body-style="{ fontSize: '15px' }" shadow="hover">
       <template #header>
-        <span class="text-[1.2rem] font-medium">{{ projectName }} ✨✨✨</span>
+        <span class="text-[1.2rem] font-medium">VAdmin Plus ✨✨✨</span>
       </template>
 
       <div>
-        {{ projectName }} 是一款基于Vue3 + TypeScript + ElementPlus
+        VAdmin Plus 是一款基于Vue3 + TypeScript + ElementPlus
         等技术栈搭建的通用后台系统模板。结合了最新的前端技术栈，前后端权限控制、粒子化权限控制、自定义系统主题配置等多种功能。可以帮助你快速的搭建一个有模有样的基础的后台管理系统平台🎉🎉🎉
       </div>
     </el-card>
@@ -83,7 +83,7 @@ Object.keys(devDependencies).forEach(key => {
   DevDependenciesArr.push(dependenciesObj)
 })
 
-const projectName = useGetGlobalProperties().$GlobalConfig.projectName
+// const projectName = useGetGlobalProperties().$GlobalConfig.projectName
 </script>
 
 <style scoped>

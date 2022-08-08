@@ -13,23 +13,23 @@
 </template>
 
 <script setup lang="ts">
-  import { useRouter } from 'vue-router'
-  import { getImageUrl } from '@/utils/common/AsyncImportImg'
-  import { removeLocalKey } from '@/utils/common/HandleLocalStorageUtil'
-  import { UseSysStore } from '@/store/modules/SysStore'
-  import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
+import { useRouter } from 'vue-router'
+import { getImageUrl } from '@/utils/common/AsyncImportImg'
+import { removeLocalKey } from '@/utils/common/HandleLocalStorageUtil'
+import { UseSysStore } from '@/store/modules/SysStore'
+import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 
-  const router = useRouter()
-  const SysStore = UseSysStore()
-  const SysRouteMenuStore = UseSysRouteMenuStore()
+const router = useRouter()
+const SysStore = UseSysStore()
+const SysRouteMenuStore = UseSysRouteMenuStore()
 
-  const clickDropdownMenuItem = (command: string) => {
-    if (command === 'SIGN_OUT') {
-      removeLocalKey('token')
-      removeLocalKey('layoutMode')
-      removeLocalKey('historyMenu')
-      SysRouteMenuStore.IsAddAsyncRouter = false
-      router.push({ name: 'LoginIndex' })
-    }
+const clickDropdownMenuItem = (command: string) => {
+  if (command === 'SIGN_OUT') {
+    removeLocalKey('VAdminToken')
+    removeLocalKey('layoutMode')
+    removeLocalKey('historyMenu')
+    SysRouteMenuStore.IsAddAsyncRouter = false
+    router.push({ name: 'Login' })
   }
+}
 </script>

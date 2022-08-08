@@ -1,8 +1,8 @@
 import { RouteMeta } from 'vue-router'
 
 namespace SysRouterMenu {
-  // VAdmire系统路由类型
-  interface VAdmireRoute {
+  // VAdmin系统路由类型
+  interface VAdminRoute {
     path: string
     name: string
     /**
@@ -12,7 +12,7 @@ namespace SysRouterMenu {
      * 还未在真实环境接口做测试，目前解决方案在 GlobModules 做适配处理
      */
     component?: string
-    children?: VAdmireRoute[]
+    children?: VAdminRoute[]
     meta?: RouteMeta
     redirect?: string // 重定向路径（设置该属性，不需要设置component）
   }
