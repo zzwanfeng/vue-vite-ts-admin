@@ -1,0 +1,21 @@
+{
+  "cSpell.words": [
+    "attributify",
+    "dirents",
+    "Echart",
+    "Echarts",
+    "Gaode",
+    "Iconify",
+    "nprogress",
+    "Perfix",
+    "Pinia",
+    "searchs",
+    "stylelint",
+    "tencent",
+    "Vite",
+    "vueuse",
+    "Windi",
+    "windicss"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

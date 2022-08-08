@@ -1,0 +1,37 @@
+html,
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+svg {
+  display: inline-block;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 滚动条宽度 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* 小滑块 */
+::-webkit-scrollbar-thumb {
+  background: #0003;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0000004d;
+}

@@ -1,0 +1,8 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "rules": {
+    "property-no-vendor-prefix": null,
+    "rule-empty-line-before": null
+  },
+  "ignoreFiles": "['node_modules', 'dist', '/index.html']"
+}
