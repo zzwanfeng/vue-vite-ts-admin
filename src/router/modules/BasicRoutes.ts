@@ -24,7 +24,7 @@ const BasicRoutes: SysRouterMenu.VAdmireRoute[] = [
 		name: 'Home',
 		component: 'Layout',
 		meta: {
-			label: '仪表盘',
+			label: '仪表盘'
 		},
 		children: [
 			{

@@ -19,7 +19,10 @@ NProgress.configure({ easing: 'ease', speed: 500 })
  */
 const routerInstance = createRouter({
 	history: createWebHashHistory(),
-	routes: transformVAdmireToVRouterRecordRaw(BasicRoutes)
+	routes: transformVAdmireToVRouterRecordRaw(BasicRoutes),
+	scrollBehavior(to, from, savedPosition) {
+		return { top: 0 }
+	},
 })
 
 /**
