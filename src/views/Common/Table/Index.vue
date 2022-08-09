@@ -52,6 +52,7 @@
 import { reactive, ref } from 'vue'
 import { Action, ElMessageBox } from 'element-plus'
 import { getUserTableApi, IUser } from '@/apis/SysTableDemoApi'
+import VAdminTable from '@/components/VAdminTable/Index.vue'
 
 const TableHeaderData = [
   {

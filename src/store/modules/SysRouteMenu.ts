@@ -62,8 +62,6 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
 		 * @param value
 		 */
 		addHistoryMenu(value: string) {
-			console.log('1', !this.AllHistoryMenuRecord.includes(value));
-
 			if (!this.AllHistoryMenuRecord.includes(value)) {
 				this.AllHistoryMenuRecord.push(value)
 				setLocalKey('historyMenu', this.AllHistoryMenuRecord.toString())

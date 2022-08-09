@@ -103,7 +103,7 @@ import { useRouter } from 'vue-router'
 import type { FormInstance, FormRules } from 'element-plus'
 import { UseSysStore } from '@/store/modules/SysStore'
 
-import SvgFileCom from '@/components/SvgFileCom.vue'
+import SvgFileCom from '@/components/SvgFileCom/Index.vue'
 import IconifyCom from '@/components/IconifyCom.vue'
 
 import { userLoginApi } from '@/apis/SysUserApi'

@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 
-import SvgFileCom from '@/components/SvgFileCom.vue'
+import SvgFileCom from '@/components/SvgFileCom/Index.vue'
 
 const router = useRouter()
 </script>

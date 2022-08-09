@@ -43,6 +43,7 @@ import { Action, ElMessageBox, UploadFile, UploadUserFile } from 'element-plus'
 import * as XLSX from 'xlsx'
 import { getUserTableApi, IUser } from '@/apis/SysTableDemoApi'
 import { excelFileOut, excelFileInput } from '@/utils/common/ExcelFileHandleUtil'
+import VAdminTable from '@/components/VAdminTable/Index.vue'
 
 const TableHeaderData = [
   {

@@ -61,7 +61,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
 		},
 		server: {
 			host: HOST,
-			port: 3000,
+			port: 9527,
 			// port: process.env.PORT,
 			strictPort: false,
 			open: false,
@@ -120,24 +120,25 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
 
 				dts: resolve(pathResolve('src'), 'auto-imports.d.ts'),
 			}),
-			Components({
-				// ui库解析器，也可以自定义
-				resolvers: [
-					// 自动注册图标组件
-					// 在这里配置 Iconify 图标的前缀
-					IconsResolver({
-						enabledCollections: [],
-					}),
-					// 自动导入 Element Plus 组件
-					ElementPlusResolver(),
-				],
-				// 要搜索组件的目录的相对路径
-				dts: resolve(pathResolve('src'), 'components.d.ts'),
-				// 组件的有效文件扩展名。
-				extensions: ['vue'],
-				// 允许子目录作为组件的命名空间前缀。
-				directoryAsNamespace: true,
-			}),
+			// unplugin-vue-components插件 自动导入自己的插件 需要的可以打开
+			// Components({
+			// 	// ui库解析器，也可以自定义
+			// 	resolvers: [
+			// 		// 自动注册图标组件
+			// 		// 在这里配置 Iconify 图标的前缀
+			// 		IconsResolver({
+			// 			enabledCollections: [],
+			// 		}),
+			// 		// 自动导入 Element Plus 组件
+			// 		ElementPlusResolver(),
+			// 	],
+			// 	// 要搜索组件的目录的相对路径
+			// 	dts: resolve(pathResolve('src'), 'components.d.ts'),
+			// 	// 组件的有效文件扩展名。
+			// 	extensions: ['vue'],
+			// 	// 允许子目录作为组件的命名空间前缀。
+			// 	directoryAsNamespace: true,
+			// }),
 			Icons({
 				autoInstall: true,
 			}),

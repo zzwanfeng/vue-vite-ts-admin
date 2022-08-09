@@ -40,6 +40,8 @@
 <script setup lang="ts">
 import { ECOption } from '@/utils/echarts'
 
+import EchartBasic from '@/components/EchartBasic/Index.vue'
+
 const chartOne: ECOption = {
   title: {
     text: '系统折线图'

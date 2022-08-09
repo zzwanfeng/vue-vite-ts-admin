@@ -113,6 +113,7 @@ export default async (
 	 */
 
 	if (LocalUserToken && LocalUserToken !== '') {
+		console.log('to', to);
 
 		// 1. 有Token
 		if (from.name === 'Login' && to.name !== 'Login') {
@@ -128,12 +129,15 @@ export default async (
 			if (!SysRouteMenuStore.IsAddAsyncRouter) {
 				await routeMenuHandleProcess(SysStore, SysRouteMenuStore, RouterInstance)
 				SysRouteMenuStore.IsAddAsyncRouter = true
+				// setTimeout(() => {
 				next({ path: to.fullPath, replace: true })
+				// }, 0)
 				return
 			}
 		} else if (to.name === 'Login') {
 			// 1.3 想手动跳转登录页，返回指定页面
-			next({ name: 'Login' })
+			// next({ name: 'Login' })
+			next()
 			return
 		}
 
