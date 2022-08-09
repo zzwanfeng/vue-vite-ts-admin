@@ -10,7 +10,8 @@
           :key="route.path"
           :style="{ height: SysStore.contentHeight }"
           class="overflow-x-hidden p-[1rem]"
-        ></component
+        >
+        </component
       ></keep-alive>
 
       <component

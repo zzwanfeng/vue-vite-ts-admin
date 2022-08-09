@@ -15,13 +15,13 @@
 </template>
 
 <script setup lang="ts">
-  import { UseSysStore } from '@/store/modules/SysStore'
+import { UseSysStore } from '@/store/modules/SysStore'
 
-  import GlobalTitleLogo from '../../global/GlobalTitleLogo.vue'
-  import GlobalMenu from '../../global/GlobalMenu.vue'
-  import GlobalFullScreenIcon from '../../global/GlobalFullScreenIcon.vue'
-  import GlobalSettingIcon from '../../global/GlobalSettingIcon.vue'
-  import GlobalSysUserInfo from '../../global/GlobalSysUserInfo.vue'
+import GlobalTitleLogo from '../components/GlobalTitleLogo.vue'
+import GlobalMenu from '../components/GlobalMenu.vue'
+import GlobalFullScreenIcon from '../components/GlobalFullScreenIcon.vue'
+import GlobalSettingIcon from '../components/GlobalSettingIcon.vue'
+import GlobalSysUserInfo from '../components/GlobalSysUserInfo.vue'
 
-  const SysStore = UseSysStore()
+const SysStore = UseSysStore()
 </script>

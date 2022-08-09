@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-  import GlobalMenu from '@/layout/global/GlobalMenu.vue'
+import GlobalMenu from '../components/GlobalMenu.vue'
 </script>

@@ -2,6 +2,10 @@ import { defineStore } from 'pinia'
 import type { SysRouterMenu } from 'types/SysRouterMenu'
 import { RouteRecordRaw } from 'vue-router'
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
+import BasicRoutes from '@/router/modules/BasicRoutes'
+import createSysMenuRecord from '@/utils/Router/CreateSysMenu'
+
+
 
 interface ISysRouteMenuStoreState {
 	IsAddAsyncRouter: boolean // 是否挂载了异步路由
@@ -30,7 +34,8 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
 			AllRouterRecord: [],
 			AllConstantRouterRecord: [],
 			AllAsyncRouterRecord: [],
-			AllMenuRecord: [],
+			// AllMenuRecord: [],
+			AllMenuRecord: createSysMenuRecord(BasicRoutes),
 			AllRouteCollect: [],
 			AllHistoryMenuRecord: getLocalKey('historyMenu')?.split(',') || []
 		}

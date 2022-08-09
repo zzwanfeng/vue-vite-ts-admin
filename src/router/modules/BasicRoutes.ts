@@ -1,36 +1,29 @@
-import type { SysRouterMenu } from 'types/SysRouterMenu'
+import { RouteRecordRaw } from 'vue-router'
+import Layout from '@/layout/Index.vue'
 
-const BasicRoutes: SysRouterMenu.VAdminRoute[] = [
+const BasicRoutes: Array<RouteRecordRaw> = [
 	{
 		path: '/Login',
 		name: 'Login',
-		component: '@/views/Login/Login/Index.vue',
+		component: () => import(/* webpackChunkName: "Login" */ '@/views/Login/Login/Index.vue'),
 		meta: {
 			label: '登录',
-			isShow: false
+			hidden: true
 		}
 	},
 	{
 		path: '/',
-		name: 'Index',
+		name: 'Home',
+		component: Layout,
 		redirect: '/Home',
 		meta: {
-			label: '首页',
-			isShow: false
-		}
-	},
-	{
-		path: '/Home',
-		name: 'Home',
-		component: 'Layout',
-		meta: {
-			label: '仪表盘'
+			label: '首页'
 		},
 		children: [
 			{
-				path: '',
+				path: 'Home',
 				name: 'Home',
-				component: '@/views/Home/Index.vue',
+				component: () => import(/* webpackChunkName: "Home" */ '@/views/Home/Index.vue'),
 				meta: {
 					label: '仪表盘',
 					icon: 'flat-color-icons:about'
@@ -41,30 +34,34 @@ const BasicRoutes: SysRouterMenu.VAdminRoute[] = [
 	{
 		path: '/404',
 		name: 'Basic_404',
-		component: '@/views/Others/404/Index.vue',
+		component: () => import(/* webpackChunkName: "Others" */ '@/views/Others/404/Index.vue'),
 		meta: {
 			label: '404页面不存在',
-			isShow: false
+			hidden: true
 		}
 	},
 	{
 		path: '/500',
 		name: 'Basic_500',
-		component: '@/views/Others/500/Index.vue',
+		component: () => import(/* webpackChunkName: "Others" */ '@/views/Others/500/Index.vue'),
 		meta: {
 			label: '500',
-			isShow: false
+			hidden: true
+		}
+	},
+	{
+		path: '/:pathMatch(.*)*',
+		name: 'not-found',
+		component: () => import(/* webpackChunkName: "Others" */ '@/views/Others/404/Index.vue'),
+		meta: {
+			title: {
+				'/zh-CN': '未找到',
+				'/en-US': 'NOT FOUND'
+			},
+			hidden: true,
+			hiddenTab: true
 		}
 	}
 ]
 
 export default BasicRoutes
-
-export const Redirect404Router: SysRouterMenu.VAdminRoute = {
-	path: '/:catchAll(.*)',
-	name: '404',
-	redirect: '/404',
-	meta: {
-		isShow: false
-	}
-}

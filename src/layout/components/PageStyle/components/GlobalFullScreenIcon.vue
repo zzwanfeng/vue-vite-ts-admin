@@ -4,9 +4,9 @@
 </template>
 
 <script setup lang="ts">
-  import { useFullscreen } from '@vueuse/core'
+import { useFullscreen } from '@vueuse/core'
 
-  import GlobalHeaderItemIcon from './GlobalHeaderItemIcon.vue'
+import GlobalHeaderItemIcon from './GlobalHeaderItemIcon.vue'
 
-  const { isFullscreen, toggle } = useFullscreen()
+const { isFullscreen, toggle } = useFullscreen()
 </script>

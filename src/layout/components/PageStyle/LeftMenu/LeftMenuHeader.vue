@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-  import GlobalLeftMenuCollapse from '../../global/GlobalLeftMenuCollapse.vue'
-  import GlobalFullScreenIcon from '../../global/GlobalFullScreenIcon.vue'
-  import GlobalSettingIcon from '../../global/GlobalSettingIcon.vue'
-  import GlobalSysUserInfo from '../../global/GlobalSysUserInfo.vue'
-  import GlobalBreadCrumb from '../../global/GlobalBreadCrumb.vue'
+import GlobalLeftMenuCollapse from '../components/GlobalLeftMenuCollapse.vue'
+import GlobalFullScreenIcon from '../components/GlobalFullScreenIcon.vue'
+import GlobalSettingIcon from '../components/GlobalSettingIcon.vue'
+import GlobalSysUserInfo from '../components/GlobalSysUserInfo.vue'
+import GlobalBreadCrumb from '../components/GlobalBreadCrumb.vue'
 </script>

@@ -37,19 +37,19 @@ import { UseSysStore } from '@/store/modules/SysStore'
 import BasicLayoutSlot from './BasicLayoutSlot.vue'
 
 // 各布局的头部组件
-import LeftMenuHeader from '../mode/leftLayoutMode/LeftMenuHeader.vue'
-import TopMenuHeader from '../mode/topLayoutMode/TopMenuHeader.vue'
-import TopMixMenuHeader from '../mode/topMixLayoutMode/TopMixMenuHeader.vue'
+import LeftMenuHeader from './components/PageStyle/LeftMenu/LeftMenuHeader.vue'
+import TopMenuHeader from './components/PageStyle/TopMenu/TopMenuHeader.vue'
+import TopMixMenuHeader from './components/PageStyle/TopMixMenu/TopMixMenuHeader.vue'
 
 // 各布局的侧边栏组件
-import LeftMenuAside from '../mode/leftLayoutMode/LeftMenuAside.vue'
-import TopMixMenuAside from '../mode/topMixLayoutMode/TopMixMenuAside.vue'
+import LeftMenuAside from './components/PageStyle/LeftMenu/LeftMenuAside.vue'
+import TopMixMenuAside from './components/PageStyle/TopMixMenu/TopMixMenuAside.vue'
 
 // 系统的主内容区域
-import GlobalMainContent from '../global/GlobalMainContent.vue'
+import GlobalMainContent from './components/Content/GlobalMainContent.vue'
 
 // 系统设置抽屉
-import GlobalSysSetting from '../global/GlobalSysSetting.vue'
+import GlobalSysSetting from './components/Setting/GlobalSysSetting.vue'
 
 const SysStore = UseSysStore()
 

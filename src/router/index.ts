@@ -1,53 +1,36 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import NProgress from 'nprogress'
-
-import { App } from 'vue'
-
-// 路由守卫处理函数
-import routeMenuHandleProcess from './RouterBeforeEachHandle'
-
-// 转换 VAdminRoutes 转换为 RouteRecordRaw[] 工具函数
-import transformVAdminToVRouterRecordRaw from './utils/TransformVAdminRoute'
-
-// 常量路由
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+// import { store } from '../store'
 import BasicRoutes from './modules/BasicRoutes'
 
-NProgress.configure({ easing: 'ease', speed: 500 })
 
-/**
- * 路由实例
- */
-const routerInstance = createRouter({
-	history: createWebHashHistory(),
-	routes: transformVAdminToVRouterRecordRaw(BasicRoutes),
-	scrollBehavior(to, from, savedPosition) {
-		return { top: 0 }
-	},
+const router = createRouter({
+	history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
+	scrollBehavior: () => ({
+		top: 0
+	}),
+	routes: BasicRoutes
+})
+router.beforeEach((to, from, next) => {
+	// const tabsOption = store.getters['tabModule/getTabsOption']
+	// // 判断当前路由中是否已经入栈
+	// const flag = tabsOption.findIndex((tab: { route: string }) => tab.route === to.path) > -1
+	// if (!flag && !to.meta.hiddenTab) {
+	//   store.commit('tabModule/ADD_TAB', { route: to.path, title: to.meta.title, name: to.name })
+	// }
+	// store.commit('tabModule/SET_TAB', to.path)
+	// if (sessionStorage.getItem('auth')) {
+	//   next()
+	// } else if (to.path === '/login') {
+	//   console.log('/login')
+	//   next()
+	// } else {
+	//   console.log('unauthed into login')
+	//   next({
+	//     path: '/login',
+	//     query: { redirect: to.fullPath }
+	//   })
+	// }
+	next()
 })
 
-/**
- * 全局路由守卫
- */
-//  前置守卫
-routerInstance.beforeEach(async (to, from, next) => {
-	// 进度条开始
-	NProgress.start()
-	// 全局路由守卫处理
-	await routeMenuHandleProcess(to, from, next, routerInstance)
-})
-
-// 后置钩子
-routerInstance.afterEach(async () => {
-	// 进度条结束
-	NProgress.done()
-})
-
-/**
- * 初始化路由
- * @param app
- */
-const initRouter = (app: App<Element>) => {
-	app.use(routerInstance)
-}
-
-export { routerInstance, initRouter }
+export default router

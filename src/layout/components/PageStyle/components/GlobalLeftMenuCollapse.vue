@@ -12,17 +12,17 @@
 </template>
 
 <script setup lang="ts">
-  /**
-   * 控制左侧菜单收缩按钮组件
-   */
+/**
+ * 控制左侧菜单收缩按钮组件
+ */
 
-  import GlobalHeaderItemIcon from './GlobalHeaderItemIcon.vue'
+import GlobalHeaderItemIcon from './GlobalHeaderItemIcon.vue'
 
-  import { UseSysStore } from '@/store/modules/SysStore'
+import { UseSysStore } from '@/store/modules/SysStore'
 
-  const SysStore = UseSysStore()
+const SysStore = UseSysStore()
 
-  const setMenuIsCollapsed = (value: boolean) => {
-    SysStore.setLeftMenuIsCollapsed(value)
-  }
+const setMenuIsCollapsed = (value: boolean) => {
+  SysStore.setLeftMenuIsCollapsed(value)
+}
 </script>

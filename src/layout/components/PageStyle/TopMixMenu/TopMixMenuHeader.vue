@@ -16,14 +16,14 @@
 </template>
 
 <script setup lang="ts">
-  import { UseSysStore } from '@/store/modules/SysStore'
+import { UseSysStore } from '@/store/modules/SysStore'
 
-  import GlobalTitleLogo from '../../global/GlobalTitleLogo.vue'
-  import GlobalFullScreenIcon from '../../global/GlobalFullScreenIcon.vue'
-  import GlobalSettingIcon from '../../global/GlobalSettingIcon.vue'
-  import GlobalSysUserInfo from '../../global/GlobalSysUserInfo.vue'
-  import GlobalLeftMenuCollapse from '../../global/GlobalLeftMenuCollapse.vue'
-  import GlobalBreadCrumb from '../../global/GlobalBreadCrumb.vue'
+import GlobalTitleLogo from '../components/GlobalTitleLogo.vue'
+import GlobalFullScreenIcon from '../components/GlobalFullScreenIcon.vue'
+import GlobalSettingIcon from '../components/GlobalSettingIcon.vue'
+import GlobalSysUserInfo from '../components/GlobalSysUserInfo.vue'
+import GlobalLeftMenuCollapse from '../components/GlobalLeftMenuCollapse.vue'
+import GlobalBreadCrumb from '../components/GlobalBreadCrumb.vue'
 
-  const SysStore = UseSysStore()
+const SysStore = UseSysStore()
 </script>
