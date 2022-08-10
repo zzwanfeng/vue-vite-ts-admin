@@ -8,7 +8,7 @@ import lodash from 'lodash'
 
 import PageView404 from '@/views/Others/404/Index.vue'
 
-import { GlobFileModule } from './GlobModules'
+import { GlobFileModule } from '@/utils/Router/GlobModules'
 
 /**
  * 工具函数：转换 VAdminRoute[] -> RouteRecordRaw[]

@@ -34,7 +34,6 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
 			AllRouterRecord: [],
 			AllConstantRouterRecord: [],
 			AllAsyncRouterRecord: [],
-			// AllMenuRecord: [],
 			AllMenuRecord: createSysMenuRecord(BasicRoutes),
 			AllRouteCollect: [],
 			AllHistoryMenuRecord: getLocalKey('historyMenu')?.split(',') || []

@@ -24,7 +24,6 @@ import GlobalSubMenu from './GlobalSubMenu.vue'
 const route = useRoute()
 const SysStore = UseSysStore()
 const SysRouteMenuStore = UseSysRouteMenuStore()
-console.log('1', SysRouteMenuStore.AllMenuRecord)
 
 interface GlobalMenuProps {
   mode: 'vertical' | 'horizontal'

@@ -102,6 +102,7 @@ export const UseSysStore = defineStore('SysStore', {
 		 */
 		async getUserAsyncRouterBasicServe() {
 			const BusinessRoutes = await userAsyncRouters()
+
 			if (BusinessRoutes) {
 				return BusinessRoutes
 			}
