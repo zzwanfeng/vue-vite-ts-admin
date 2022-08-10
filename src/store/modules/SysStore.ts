@@ -5,7 +5,7 @@ import { SysBaseConfig } from '@/config/GlobalConfig/Index'
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 import { CreateMixColor } from '@/utils/common/ColorHandleUtil'
 
-import { IUserInfo, userInfoApi, userAsyncRouters } from '@/apis/SysUserApi'
+import { userAsyncRouters } from '@/apis/SysUserApi'
 
 import { useThemeMode } from '@/hooks/UseThemeMode'
 
@@ -41,7 +41,6 @@ const ThemeColorArray = [
 interface ISysStoreState {
 	SysBaseConfig: SysBasicConfig.SysBaseConfig
 	SysConfig: SysConfig.Config
-	SysUserInfo: IUserInfo
 }
 
 export const UseSysStore = defineStore('SysStore', {
@@ -61,7 +60,6 @@ export const UseSysStore = defineStore('SysStore', {
 				customTagHeight: 50,
 				pageTransition: 'fade-slide'
 			},
-			SysUserInfo: {}
 		}
 
 		return SysStoreState
@@ -87,15 +85,6 @@ export const UseSysStore = defineStore('SysStore', {
 		setLayoutMode(value: SysBasicConfig.SysLayoutMode) {
 			setLocalKey('layoutMode', value)
 			this.SysConfig.layoutMode = value
-		},
-		/**
-		 * 获取用户信息
-		 */
-		async setSysUserInfo() {
-			const UserInfo = await userInfoApi()
-			if (UserInfo) {
-				this.SysUserInfo = UserInfo
-			}
 		},
 		/**
 		 * 获取用户异步路由表（后端控制权限路由）

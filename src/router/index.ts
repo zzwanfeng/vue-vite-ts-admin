@@ -10,6 +10,7 @@ import { setDocumentTitle, domTitle } from '@/utils/Router/domUtil'
 import transformVAdminRouteToRouteRecordRaw from '@/utils/Router/TransformVAdminRoute'
 import { UseSysStore } from '@/store/modules/SysStore'
 import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
+import { UseUserStore } from '@/store/modules/User'
 import createSysMenuRecord from '@/utils/Router/CreateSysMenu'
 import BusinessRoutes from '@/router/modules/BusinessRoutes'
 
@@ -41,6 +42,10 @@ router.beforeEach(async (to, from, next) => {
 				next()
 				NProgress.done()
 			} else {
+				// 获取登录人信息
+				const UserStore = UseUserStore()
+				await UserStore.setUserInfo()
+
 				// 获取异步路由数据
 				const SysStore = UseSysStore()
 				const VAdminAsyncRouters = await SysStore.getUserAsyncRouterBasicServe()
@@ -85,6 +90,8 @@ router.beforeEach(async (to, from, next) => {
 				query: { redirect: to.fullPath }
 			})
 			SysRouteMenuStore.AllAsyncRouterRecord = []
+			SysRouteMenuStore.AllMenuRecord = []
+			SysRouteMenuStore.IsAddAsyncRouter = false
 		}
 		NProgress.done()
 
