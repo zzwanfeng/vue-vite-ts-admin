@@ -109,7 +109,10 @@ import IconifyCom from '@/components/IconifyCom.vue'
 import { userLoginApi } from '@/apis/SysUserApi'
 import { setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 import { getImageUrl } from '@/utils/common/AsyncImportImg'
+import { vAdminLoading } from '@/utils/common/Feedback'
 import { useThemeMode } from '@/hooks/UseThemeMode'
+
+import { ElLoading } from 'element-plus'
 
 const router = useRouter()
 const SysStore = UseSysStore()
@@ -149,11 +152,22 @@ const onHandleLogin = async (FormRef: FormInstance | undefined) => {
   await FormRef.validate(async (valid, fields) => {
     if (!valid) return
     // 校验成功 进行登录
-    const UserToken = await userLoginApi(LoginModel.username, LoginModel.password)
+    const params = {
+      username: LoginModel.username,
+      password: LoginModel.password
+    }
+
+    vAdminLoading('登录中...')
+    const { data: UserToken } = await userLoginApi(params)
+    vAdminLoading('', true)
+
     if (UserToken) {
       setLocalKey('VAdminToken', UserToken)
-      // 登录后台系统
-      router.push({ name: 'Home' })
+
+      setTimeout(() => {
+        // 登录后台系统
+        router.push({ name: 'Home' })
+      }, 0)
     }
   })
 }

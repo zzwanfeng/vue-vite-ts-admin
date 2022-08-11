@@ -73,7 +73,9 @@ const TableHeaderData = [
     columnFixed: 'right'
   }
 ]
-const TableContentUser = ref((await getUserTableApi()) || [])
+const { data: TableData } = await getUserTableApi()
+const TableContentUser = ref(TableData) || []
+
 // 点击修改
 const clickModifyColumn = (value: IUser) => {
   ElMessageBox.alert('是否修改数据', '修改数据', {

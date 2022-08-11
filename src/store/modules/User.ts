@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { userInfoApi } from '@/apis/SysUserApi'
+import { getUserInfo } from '@/apis/SysUserApi'
 
 export interface IUserInfo {
 	id?: number
@@ -28,7 +28,8 @@ export const UseUserStore = defineStore('UserStore', {
 			 * 获取用户信息
 			 */
 		async setUserInfo() {
-			const UserInfo = await userInfoApi()
+			const { data: UserInfo } = await getUserInfo()
+
 			if (UserInfo) {
 				this.UserInfo = UserInfo
 			}

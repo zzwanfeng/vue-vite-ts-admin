@@ -53,6 +53,7 @@ import { reactive, ref } from 'vue'
 import { Action, ElMessageBox } from 'element-plus'
 import { getUserTableApi, IUser } from '@/apis/SysTableDemoApi'
 import VAdminTable from '@/components/VAdminTable/Index.vue'
+import { log } from 'console'
 
 const TableHeaderData = [
   {
@@ -83,7 +84,8 @@ const TableHeaderData = [
   }
 ]
 
-const TableContentUser = ref((await getUserTableApi()) || [])
+const { data: TableData } = await getUserTableApi()
+const TableContentUser = ref(TableData) || []
 
 // 表格多选（勾选了的数据）
 const TableSectionContent: IUser[] = []

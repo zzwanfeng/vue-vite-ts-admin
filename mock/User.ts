@@ -32,7 +32,7 @@ export default [
 	},
 	{
 		url: '/mock/user/info',
-		method: 'post',
+		method: 'get',
 		response: ({ headers }: any) => {
 			if (headers.token === 'VAdmin-Admin') {
 				return {
@@ -71,7 +71,7 @@ export default [
 	},
 	{
 		url: '/mock/user/asyncRouters',
-		method: 'post',
+		method: 'get',
 		response: ({ headers }: any) => {
 			if (headers.token === 'VAdmin-Admin') {
 				return {

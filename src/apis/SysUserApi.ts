@@ -1,8 +1,6 @@
-import { SysRouterMenu } from 'types/SysRouterMenu'
 
-import { getLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 
-import $http from '@/utils/https'
+import request from '@/utils/request'
 
 /**
  * 获取用户登录
@@ -10,64 +8,49 @@ import $http from '@/utils/https'
  * @param password
  * @returns
  */
-export const userLoginApi = async (username: string, password: string) => {
-  const response = await $http.YPlusRequest<SysConfig.HttpResponse<string | undefined>>({
-    url: '/user/login',
-    method: 'post',
-    isLoading: true,
-    loadingText: '登录中...',
-    data: {
-      username,
-      password
-    }
-  })
-  if (response.code === 200) {
-    return response.data
-  }
-  return undefined
-}
-
-export interface IUserInfo {
-  id?: number
-  username?: string
-  nickname?: string
-  birthday?: string
-  roles?: Array<string>
-  permissions?: Array<string>
+export const userLoginApi = async (data: object) => {
+	return request({
+		url: '/user/login',
+		method: 'post',
+		json: true,
+		data: data
+	}).then((res) => {
+		if (res.code === 200) {
+			return res
+		}
+		return Promise.reject(res)
+	})
 }
 
 /**
- * 获取用户信息
- * @returns
+ * @description POST 查询用户信息
  */
-export const userInfoApi = async () => {
-  const response = await $http.YPlusRequest<SysConfig.HttpResponse<IUserInfo | undefined>>({
-    url: '/user/info',
-    method: 'post',
-    headers: {
-      token: getLocalKey('VAdminToken') as string
-    }
-  })
-  if (response.code === 200) {
-    return response.data
-  }
-  return undefined
+export const getUserInfo = () => {
+	return request({
+		url: '/user/info',
+		method: 'get',
+		json: true,
+	}).then((res) => {
+		if (res.code === 200) {
+			return res
+		}
+		return Promise.reject(res)
+	})
 }
 
 /**
  * 获取用户异步路由表
  * @returns
  */
-export const userAsyncRouters = async () => {
-  const response = await $http.YPlusRequest<SysConfig.HttpResponse<SysRouterMenu.VAdminRoute[] | undefined>>({
-    url: '/user/asyncRouters',
-    method: 'post',
-    headers: {
-      token: getLocalKey('VAdminToken') as string
-    }
-  })
-  if (response.code === 200) {
-    return response.data
-  }
-  return undefined
+export const getAsyncRouters = async () => {
+	return request({
+		url: '/user/asyncRouters',
+		method: 'get',
+		json: true,
+	}).then((res) => {
+		if (res.code === 200) {
+			return res
+		}
+		return Promise.reject(res)
+	})
 }

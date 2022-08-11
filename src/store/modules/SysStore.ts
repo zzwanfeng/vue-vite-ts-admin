@@ -5,7 +5,7 @@ import { SysBaseConfig } from '@/config/GlobalConfig/Index'
 import { getLocalKey, setLocalKey } from '@/utils/common/HandleLocalStorageUtil'
 import { CreateMixColor } from '@/utils/common/ColorHandleUtil'
 
-import { userAsyncRouters } from '@/apis/SysUserApi'
+import { getAsyncRouters } from '@/apis/SysUserApi'
 
 import { useThemeMode } from '@/hooks/UseThemeMode'
 
@@ -90,7 +90,7 @@ export const UseSysStore = defineStore('SysStore', {
 		 * 获取用户异步路由表（后端控制权限路由）
 		 */
 		async getUserAsyncRouterBasicServe() {
-			const BusinessRoutes = await userAsyncRouters()
+			const { data: BusinessRoutes } = await getAsyncRouters()
 
 			if (BusinessRoutes) {
 				return BusinessRoutes
