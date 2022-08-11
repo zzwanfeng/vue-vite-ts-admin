@@ -25,7 +25,7 @@ const BasicRoutes: Array<RouteRecordRaw> = [
 				name: 'Home',
 				component: () => import(/* webpackChunkName: "Home" */ '@/views/Home/Index.vue'),
 				meta: {
-					label: '仪表盘',
+					label: '首页',
 					icon: 'mdi:home'
 				}
 			}

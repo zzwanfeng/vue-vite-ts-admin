@@ -23,7 +23,6 @@ const axios = Axios.create({
 // 允许携带cookie
 axios.defaults.withCredentials = true
 // 请求头信息
-console.log('1', getLocalKey('VAdminToken'))
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'
 // 默认使用 application/json 形式
 axios.defaults.headers.post['Content-Type'] = 'application/json'

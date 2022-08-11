@@ -1,5 +1,34 @@
 const menu = [
 	{
+		path: '/Dashboard',
+		name: 'Dashboard',
+		component: 'Layout',
+		meta: {
+			label: '仪表盘',
+			icon: 'material-symbols:energy-program-time-used'
+		},
+		children: [
+			{
+				path: 'Analysis',
+				name: 'Analysis',
+				component: '@/views/Dashboard/Analysis/Index.vue',
+				meta: {
+					label: '分析页',
+					icon: 'ep:element-plus'
+				}
+			},
+			{
+				path: 'Workplace',
+				name: 'Workplace',
+				component: '@/views/Dashboard/Workplace/Index.vue',
+				meta: {
+					label: '工作台',
+					icon: 'bx:table'
+				}
+			}
+		]
+	},
+	{
 		path: '/Docs',
 		name: 'Docs',
 		component: 'Layout',
