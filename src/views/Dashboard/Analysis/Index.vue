@@ -13,6 +13,7 @@
           </div>
         </el-col>
       </el-row>
+
       <el-row>
         <el-col :xl="10">
           <el-row>
@@ -93,6 +94,7 @@
           </el-card>
         </el-col>
       </el-row>
+
       <el-row>
         <el-col :span="16">
           <el-card shadow="hover" class="card">

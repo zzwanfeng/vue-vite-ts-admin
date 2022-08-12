@@ -33,7 +33,7 @@
             <template #header>
               <div class="card-header">
                 <span>所有项目</span>
-                <el-button class="button" type="text">添加更多</el-button>
+                <el-button class="button" type="info">添加更多</el-button>
               </div>
             </template>
             <div class="card-container">

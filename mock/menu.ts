@@ -29,6 +29,26 @@ const menu = [
 		]
 	},
 	{
+		path: '/Guide',
+		name: 'Guide',
+		component: 'Layout',
+		redirect: '/Guide',
+		meta: {
+			label: '引导'
+		},
+		children: [
+			{
+				path: '',
+				name: 'Guide',
+				component: '@/views/Guide/Index.vue',
+				meta: {
+					label: '引导',
+					icon: 'mdi:home'
+				}
+			}
+		]
+	},
+	{
 		path: '/Docs',
 		name: 'Docs',
 		component: 'Layout',

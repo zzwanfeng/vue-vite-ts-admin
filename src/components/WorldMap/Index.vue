@@ -1,11 +1,3 @@
-<!--
- * @Author: GeekQiaQia
- * @Date: 2021-12-30 22:04:51
- * @LastEditTime: 2021-12-30 22:18:12
- * @LastEditors: GeekQiaQia
- * @Description:
- * @FilePath: /vue3.0-template-admin/src/components/worldmap.vue
--->
 <template>
   <div
     class="jvectormap-container"
