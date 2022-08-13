@@ -1,56 +1,29 @@
 <template>
-  <div id="guide-info" class="guide-container">
-    <div class="info">
-      <el-divider content-position="left">引导页</el-divider>
-      <span style="text-align: left">通常用于首次进入app应用的功能介绍、组件交互、用户注意力转移等场景。 </span>
-      <el-link href="https://kamranahmed.info/driver.js/#single-element-no-popover" type="primary" target="_blank"
-        >driver.js</el-link
-      >
-    </div>
-    <div>
-      <el-row>
-        <el-col :offset="1" :span="22">
-          <div class="grid-content bg-purple-dark">
-            <el-card class="box-card">
-              <div style="text-align: left">
-                <span>首次进入场景</span>
-                <el-divider></el-divider>
-              </div>
-              <div class="section">
-                <el-button type="primary" round @click="handleShowHighlight">展示引导</el-button>
-              </div>
-            </el-card>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
+  <div>
+    <el-card>
+      <div id="guide-info" class="guide-container">
+        <div class="info">
+          <el-divider content-position="left">引导页</el-divider>
+          <span style="text-align: left">通常用于首次进入应用时,介绍应用供能等。 </span>
+          <el-link href="https://github.com/kamranahmedse/driver.js" type="primary" target="_blank">driver.js</el-link>
+        </div>
+      </div>
+    </el-card>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
 import Driver from 'driver.js'
 import 'driver.js/dist/driver.min.css'
-import steps from './step'
+import steps from './Step'
 
 export default defineComponent({
   name: 'Guide',
   setup() {
     const driver = ref()
-
     const handleShowGuide = () => {
       driver.value.defineSteps(steps)
       driver.value.start()
-    }
-    const handleShowHighlight = () => {
-      const highlightTab = new Driver()
-      highlightTab.highlight({
-        element: '#Tabs',
-        popover: {
-          title: '引导页',
-          description: '功能页区域介绍，用于查询不熟悉app应用的操作场景',
-          position: 'bottom'
-        }
-      })
     }
     onMounted(() => {
       driver.value = new Driver({
@@ -65,13 +38,12 @@ export default defineComponent({
       handleShowGuide()
     })
     return {
-      handleShowGuide,
-      handleShowHighlight
+      handleShowGuide
     }
   }
 })
 </script>
-<style lang="stylus" scoped>
+<style lang="less" scoped>
 .guide-container {
   margin-top: 20px;
 

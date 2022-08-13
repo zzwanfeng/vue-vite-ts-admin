@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[2.5rem] h-full cursor-pointer text-center inline-flex justify-center items-center">
+  <div class="w-[2.5rem] h-full cursor-pointer text-center inline-flex justify-center items-center" id="fullScreen">
     <IconifyCom :name="label" :width="16"></IconifyCom>
   </div>
 </template>

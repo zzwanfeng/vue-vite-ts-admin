@@ -43,7 +43,7 @@ const menu = [
 				component: '@/views/Guide/Index.vue',
 				meta: {
 					label: '引导',
-					icon: 'mdi:home'
+					icon: 'ri:guide-fill'
 				}
 			}
 		]
@@ -127,6 +127,15 @@ const menu = [
 				component: '@/views/Common/Table/Index.vue',
 				meta: {
 					label: '常用模块-表格',
+					icon: 'bx:table'
+				}
+			},
+			{
+				path: 'Dragable',
+				name: 'Dragable',
+				component: '@/views/Common/Dragable/Index.vue',
+				meta: {
+					label: '拖拽组件',
 					icon: 'bx:table'
 				}
 			}

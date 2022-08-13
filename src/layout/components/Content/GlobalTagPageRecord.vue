@@ -13,6 +13,7 @@
     "
   >
     <div
+      id="Tabs"
       class="
         tag-buttons-box
         h-full
