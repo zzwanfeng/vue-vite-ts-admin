@@ -36,7 +36,8 @@ export const UseSysRouteMenuStore = defineStore('SysRouteMenuStore', {
 			AllAsyncRouterRecord: [],
 			AllMenuRecord: createSysMenuRecord(BasicRoutes),
 			AllRouteCollect: [],
-			AllHistoryMenuRecord: getLocalKey('historyMenu')?.split(',') || []
+			// AllHistoryMenuRecord: getLocalKey('historyMenu')?.split(',') || [] //走localStorage
+			AllHistoryMenuRecord: [] //走pinia
 		}
 		return SysRouteMenuStore
 	},

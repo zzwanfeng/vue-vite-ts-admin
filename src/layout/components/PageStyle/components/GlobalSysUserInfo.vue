@@ -29,6 +29,7 @@ const clickDropdownMenuItem = (command: string) => {
     removeLocalKey('layoutMode')
     removeLocalKey('historyMenu')
     SysRouteMenuStore.IsAddAsyncRouter = false
+    SysRouteMenuStore.AllHistoryMenuRecord = []
     router.push({ name: 'Login' })
   }
 }
