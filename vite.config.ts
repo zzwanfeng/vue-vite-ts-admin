@@ -88,11 +88,11 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
 				targets: ['ie >= 11'],
 				additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
 			}),
-			viteCompression({
-				ext: '.gz',
-				algorithm: 'gzip',
-				deleteOriginFile: true
-			}),
+			// viteCompression({
+			// 	ext: '.gz',
+			// 	algorithm: 'gzip',
+			// 	deleteOriginFile: true
+			// }),
 			vue(),
 			viteMockServe({
 				mockPath: 'mock',
