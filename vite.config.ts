@@ -95,15 +95,22 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
 			// }),
 			vue(),
 			viteMockServe({
+				//mock文件地址
 				mockPath: 'mock',
+				// 开发打包开关
 				localEnabled: judgeLocalIsEnabledMock(),
+				// 生产打包开关
 				prodEnabled: judgeProdIsEnabledMock(),
+				// 这样可以控制关闭mock的时候不让mock打包到最终代码内
 				injectCode: `
           import { setupProdMockServer } from './MockProdServer';
           setupProdMockServer();
         `,
 				watchFiles: true,
+				//是否在控制台显示请求日志
 				logger: true,
+				//打开后，可以读取 ts 文件模块。 请注意，打开后将无法监视.js 文件
+				supportTs: false
 			}),
 			WindiCSS(),
 			AutoImport({
