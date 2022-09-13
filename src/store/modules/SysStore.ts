@@ -11,6 +11,7 @@ import { useThemeMode } from '@/hooks/UseThemeMode'
 
 const { judgeIsDarkMode } = useThemeMode()
 
+
 /**
  * 系统内置的主题颜色数组
  * https://material.io/resources/color/#!/?view.left=0&view.right=0
@@ -45,6 +46,7 @@ interface ISysStoreState {
 
 export const UseSysStore = defineStore('SysStore', {
 	state(): ISysStoreState {
+		console.log('tag1', judgeIsDarkMode())
 		const SysStoreState: ISysStoreState = {
 			SysBaseConfig,
 			SysConfig: {
@@ -61,6 +63,7 @@ export const UseSysStore = defineStore('SysStore', {
 				pageTransition: 'fade-slide'
 			},
 		}
+		// console.log('tag', SysStoreState)
 
 		return SysStoreState
 	},

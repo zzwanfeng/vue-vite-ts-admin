@@ -20,6 +20,7 @@ const axios = Axios.create({
 	baseURL: import.meta.env.VITE_BASE_URL,
 	timeout: 20000
 })
+
 // 允许携带cookie
 axios.defaults.withCredentials = true
 // 请求头信息
@@ -65,7 +66,6 @@ axios.interceptors.response.use(
  */
 export default function request(arr: IAxiosData) {
 	return new Promise<any>((resolve, reject) => {
-		// arr = requestValidate(arr)
 		axios({
 			timeout: arr.timeout === undefined ? 10000 : arr.timeout, // 请求超时时间
 			url: arr.url,
