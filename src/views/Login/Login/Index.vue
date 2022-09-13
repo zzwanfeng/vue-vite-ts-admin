@@ -2,7 +2,7 @@
   <div class="login v-flex aic jsc">
     <div>
       <!-- 登录表单 -->
-      <el-container direction="vertical" class="login-form dark:aaa">
+      <el-container direction="vertical" class="login-form">
         <h1 class="v-flex aic jsc">
           <img :src="getImageUrl('SysLogo.png')" :alt="SysStore.SysBaseConfig.title" srcset="" class="w-[2rem] mr-2" />
           <span class="text-[1rem] font-medium text-[var(--el-text-color-primary)] <2xl:(text-[1.5rem])">{{
@@ -10,7 +10,7 @@
           }}</span>
         </h1>
 
-        <h1 class="text-[2rem] font-bold font-serif mb-[1.5rem]">登录</h1>
+        <h1 class="text-center">登录</h1>
 
         <el-form ref="LoginFormRef" size="large" :model="LoginModel" :rules="LoginRules">
           <el-form-item prop="username">
@@ -24,6 +24,7 @@
           </el-form-item>
         </el-form>
         <el-divider />
+
         <div class="flex justify-around items-center">
           <IconifyCom
             :name="SysStore.SysConfig.themeMode !== 'dark' ? 'emojione-v1:sun' : 'fxemoji:lastquartermoonface'"
@@ -128,10 +129,18 @@ const onHandleLogin = async (FormRef: FormInstance | undefined) => {
     height: auto;
     padding: 3rem;
     border-radius: 1rem;
-    background: var(--el-bg-color-page, blue);
-  }
-  .aaa {
-    background: red;
+    background: var(--el-bg-color-page);
+
+    > h1 {
+      font-weight: bold;
+      font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+      &:nth-child(2) {
+        font-size: 2rem;
+        line-height: 1;
+        margin-bottom: 1.5rem;
+      }
+    }
   }
 }
 </style>
