@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="cursor-pointer border border-solid border-[var(--el-border-color)] rounded-md h-full px-[1rem] py-[0.8rem] rounded-md mx-[0.5rem] flex items-center"
-    :class="route.name === routeName ? 'tag-button-active' : ''"
-  >
+  <div class="global-tag-button h100 v-flex aic" :class="route.name === routeName ? 'tag-button-active' : ''">
     <span class="mr-[0.5rem] cursor-pointer">{{ label }}</span>
     <IconifyCom
       v-if="route.name !== routeName"
@@ -15,38 +12,52 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'vue-router'
-  import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
+import { useRoute } from 'vue-router'
+import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 
-  import IconifyCom from '@/components/IconifyCom.vue'
+import IconifyCom from '@/components/IconifyCom/Index.vue'
 
-  defineProps<{
-    icon: string
-    label: string
-    routeName: string
-  }>()
+defineProps<{
+  icon: string
+  label: string
+  routeName: string
+}>()
 
-  const SysRouteMenuStore = UseSysRouteMenuStore()
-  const route = useRoute()
+const SysRouteMenuStore = UseSysRouteMenuStore()
+const route = useRoute()
 
-  const deleteHistoryMenu = (key: string) => {
-    SysRouteMenuStore.deleteHistoryMenu(key)
-  }
+const deleteHistoryMenu = (key: string) => {
+  SysRouteMenuStore.deleteHistoryMenu(key)
+}
 </script>
 
-<style scoped>
-  div.tag-button-box:hover {
-    color: var(--el-color-primary);
-    border-color: var(--el-color-primary-light-3);
-  }
+<style scoped lang="less">
+.global-tag-button {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.375rem;
+  border-color: var(--el-border-color);
+}
 
-  div.tag-button-box:last-of-type {
-    margin-right: 0;
-  }
+div.tag-button-box:hover {
+  color: var(--el-color-primary);
+  border-color: var(--el-color-primary-light-3);
+}
 
-  div.tag-button-active {
-    color: var(--el-color-primary);
-    background: var(--el-color-primary-light-7);
-    border-color: var(--el-color-primary-light-7);
-  }
+div.tag-button-box:last-of-type {
+  margin-right: 0;
+}
+
+div.tag-button-active {
+  color: var(--el-color-primary);
+  background: var(--el-color-primary-light-7);
+  border-color: var(--el-color-primary-light-7);
+}
 </style>

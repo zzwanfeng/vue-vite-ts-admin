@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import RichTextCom from '@/components/RichTextCom.vue'
+import RichTextCom from '@/components/RichTextCom/Index.vue'
 
 const RichTextContent = ref('')
 </script>

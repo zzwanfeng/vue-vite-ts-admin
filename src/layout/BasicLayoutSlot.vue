@@ -1,18 +1,14 @@
 <template>
-  <el-container>
+  <el-container class="basic-layout-slot">
     <!-- 左侧菜单模式-侧边栏 -->
-    <el-aside
-      v-if="IsLeftMenuAside"
-      :width="LeftAsideWidth"
-      class="h-full border-r border-solid border-[var(--el-border-color)]"
-    >
+    <el-aside v-if="IsLeftMenuAside" :width="LeftAsideWidth" class="h100 border-r border-solid">
       <slot name="aside"> 左侧菜单-侧边栏 </slot>
     </el-aside>
 
     <!-- 顶部左侧菜单混合模式、顶部菜单模式-头部栏 -->
     <el-header
       v-if="IsTopAndTopMixHeader"
-      class="border-b border-solid border-[var(--el-border-color)] overflow-hidden"
+      class="border-b border-solid overflow-hidden"
       :style="{ height: SysStore.SysConfig.customHeaderHeight + 'px' }"
     >
       <slot name="header"> 头部栏 </slot>
@@ -22,23 +18,19 @@
       <!-- 左侧菜单模式-头部栏 -->
       <el-header
         v-if="IsLeftHeader"
-        class="border-b border-solid border-[var(--el-border-color)] overflow-hidden"
+        class="border-b border-solid overflow-hidden"
         :style="{ height: SysStore.SysConfig.customHeaderHeight + 'px' }"
       >
         <slot name="header"> 头部栏 </slot>
       </el-header>
 
       <!-- 顶部左侧菜单混合模式-侧边栏 -->
-      <el-aside
-        v-if="IsTopMixAside"
-        :width="LeftAsideWidth"
-        class="h-full border-r border-solid border-[var(--el-border-color)]"
-      >
+      <el-aside v-if="IsTopMixAside" :width="LeftAsideWidth" class="h100 border-r border-solid">
         <slot name="aside"> 侧边栏 </slot>
       </el-aside>
 
       <!-- 所有布局模式-公共部分 -->
-      <el-main :style="{ height: SysStore.mainHeight }" class="overflow-y-hidden">
+      <el-main :style="{ height: SysStore.mainHeight }" class="overflow-y">
         <slot name="main"> 内容部分 </slot>
       </el-main>
     </el-container>
@@ -86,20 +78,46 @@ const LeftAsideWidth = computed(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="less">
+.basic-layout-slot {
+  .border-r {
+    border-right-width: 1px;
+  }
+
+  .border-b {
+    border-bottom-width: 1px;
+  }
+
+  .border-solid {
+    border-style: solid;
+    border-color: var(--el-border-color);
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .overflow-y {
+    overflow-y: hidden;
+  }
+}
+
 .el-container {
   height: 100%;
 }
+
 .el-main {
   padding: 0;
   max-width: 100vw;
   overflow-x: hidden;
   /* background-color: var(--el-bg-color-page); */
 }
+
 .el-header {
   padding-left: 0;
   padding-right: 0;
 }
+
 .el-aside {
   transition: all 0.3s;
 }

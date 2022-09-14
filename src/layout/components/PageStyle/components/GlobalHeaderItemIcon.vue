@@ -9,7 +9,7 @@
  * 头部图标基础组件
  */
 
-import IconifyCom from '@/components/IconifyCom.vue'
+import IconifyCom from '@/components/IconifyCom/Index.vue'
 
 interface GlobalHeaderItemIconProps {
   label: string

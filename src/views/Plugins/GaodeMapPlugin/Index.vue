@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import GaodeMapCom from '@/components/GaodeMapCom.vue'
+import GaodeMapCom from '@/components/GaodeMapCom/Index.vue'
 </script>
 
 <style lang="less" scoped>

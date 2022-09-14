@@ -1,11 +1,12 @@
 <template>
-  <el-row :gutter="20">
+  <el-row :gutter="20" class="top-mix-menu-header">
     <el-col :span="12" class="text-left">
-      <div class="h-full flex items-center">
-        <GlobalTitleLogo :SysTitle="SysStore.SysBaseConfig.title" class="ml-[1rem] mr-[5rem]"></GlobalTitleLogo>
+      <div class="h100 v-flex aic">
+        <GlobalTitleLogo :SysTitle="SysStore.SysBaseConfig.title" class="top-mix-menu-header-logo"></GlobalTitleLogo>
         <GlobalBreadCrumb></GlobalBreadCrumb>
       </div>
     </el-col>
+
     <el-col :span="12" class="text-right">
       <GlobalLeftMenuCollapse></GlobalLeftMenuCollapse>
       <GlobalFullScreenIcon></GlobalFullScreenIcon>
@@ -27,3 +28,12 @@ import GlobalBreadCrumb from '../components/GlobalBreadCrumb.vue'
 
 const SysStore = UseSysStore()
 </script>
+
+<style lang="less" scoped>
+.top-mix-menu-header {
+  .top-mix-menu-header-logo {
+    margin-right: 5rem;
+    margin-left: 1rem;
+  }
+}
+</style>

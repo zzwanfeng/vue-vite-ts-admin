@@ -5,7 +5,7 @@
       <template #header>
         <!-- 菜单模式-头部（左侧菜单模式、顶部菜单模式、顶部混合菜单模式） -->
         <keep-alive>
-          <Component :is="CurrentLayoutModeHeader" class="h-full"></Component>
+          <Component :is="CurrentLayoutModeHeader" class="h100"></Component>
         </keep-alive>
       </template>
 

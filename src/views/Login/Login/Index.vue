@@ -47,7 +47,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { UseSysStore } from '@/store/modules/SysStore'
 
 import SvgFileCom from '@/components/SvgFileCom/Index.vue'
-import IconifyCom from '@/components/IconifyCom.vue'
+import IconifyCom from '@/components/IconifyCom/Index.vue'
 
 import { userLoginApi } from '@/apis/SysUserApi'
 import { setLocalKey } from '@/utils/common/HandleLocalStorageUtil'

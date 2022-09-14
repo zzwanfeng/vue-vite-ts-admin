@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import IconifyCom from '@/components/IconifyCom.vue'
+import IconifyCom from '@/components/IconifyCom/Index.vue'
 
 const IconList: string[] = [
   'uil:0-plus',

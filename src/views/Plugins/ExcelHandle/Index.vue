@@ -1,7 +1,7 @@
 <template>
   <div class="excel-handle">
     <el-card>
-      <section class="v-flex aic">
+      <section class="v-flex aic header">
         <el-upload
           :show-file-list="false"
           :auto-upload="false"
@@ -135,4 +135,9 @@ const outToExcelFile = () => {
 </script>
 
 <style lang="less" scoped>
+.header {
+  > div:nth-child(1) {
+    margin-right: 1rem;
+  }
+}
 </style>

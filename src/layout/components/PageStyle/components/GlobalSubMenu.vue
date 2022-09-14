@@ -31,7 +31,7 @@ import { useRouter } from 'vue-router'
 import type { SysRouterMenu } from 'types/SysRouterMenu'
 import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 
-import IconifyCom from '@/components/IconifyCom.vue'
+import IconifyCom from '@/components/IconifyCom/Index.vue'
 
 const SysRouteMenuStore = UseSysRouteMenuStore()
 const router = useRouter()

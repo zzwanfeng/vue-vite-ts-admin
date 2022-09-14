@@ -30,7 +30,7 @@
     v-loading="PageLoading"
     element-loading-text="重新加载中......"
     :style="{ height: SysStore.contentHeight }"
-    class="w-full"
+    class="w100"
   ></el-container>
 </template>
 

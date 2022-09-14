@@ -1,10 +1,11 @@
 <template>
-  <section class="h-full flex items-center justify-between">
-    <div class="h-full flex items-center justify-between">
-      <GlobalLeftMenuCollapse class="mr-[8px]" id="Hamburger"></GlobalLeftMenuCollapse>
+  <section class="h100 v-flex aic jsb">
+    <div class="h100 v-flex aic jsb">
+      <GlobalLeftMenuCollapse class="mr-8" id="Hamburger"></GlobalLeftMenuCollapse>
+
       <GlobalBreadCrumb></GlobalBreadCrumb>
     </div>
-    <div class="h-full">
+    <div class="h100">
       <GlobalFullScreenIcon></GlobalFullScreenIcon>
       <GlobalSettingIcon></GlobalSettingIcon>
       <GlobalSysUserInfo></GlobalSysUserInfo>
@@ -19,3 +20,9 @@ import GlobalSettingIcon from '../components/GlobalSettingIcon.vue'
 import GlobalSysUserInfo from '../components/GlobalSysUserInfo.vue'
 import GlobalBreadCrumb from '../components/GlobalBreadCrumb.vue'
 </script>
+
+<style lang="less" scoped>
+.mr-8 {
+  margin-right: 8px;
+}
+</style>

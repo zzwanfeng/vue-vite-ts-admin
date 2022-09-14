@@ -1,31 +1,9 @@
 <template>
   <div
     :style="{ height: SysStore.SysConfig.customTagHeight + 'px' }"
-    class="
-      w-full
-      bg-[var(--el-bg-color)]
-      text-[var(--el-text-color-primary)]
-      border-b border-solid
-      border-[var(--el-border-color)]
-      flex
-      justify-between
-      items-center
-    "
+    class="global-tag-page-record w100 v-flex jsb aic"
   >
-    <div
-      id="Tabs"
-      class="
-        tag-buttons-box
-        h-full
-        flex-[1] flex
-        items-center
-        justify-start
-        overflow-x-auto
-        whitespace-nowrap
-        overflow-y-hidden
-        py-[6px]
-      "
-    >
+    <div id="Tabs" class="global-tag-page-record-tabs h100 flex-1 v-flex jss aic">
       <GlobalTagButton
         v-for="item in SysRouteMenuStore.AllHistoryMenu"
         :key="item.key"
@@ -36,9 +14,10 @@
       ></GlobalTagButton>
     </div>
 
-    <div class="h-full flex items-center mx-[15px]">
+    <div class="h100 v-flex aic">
       <el-dropdown @command="clickDropDownItem">
         <IconifyCom class="cursor-pointer" name="carbon:down-to-bottom" width="20" height="20"></IconifyCom>
+
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item command="reload">重新加载</el-dropdown-item>
@@ -60,7 +39,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { UseSysStore } from '@/store/modules/SysStore'
 import { UseSysRouteMenuStore } from '@/store/modules/SysRouteMenu'
 
-import IconifyCom from '@/components/IconifyCom.vue'
+import IconifyCom from '@/components/IconifyCom/Index.vue'
 import GlobalTagButton from './GlobalTagButton.vue'
 
 const route = useRoute()
@@ -95,7 +74,28 @@ const clickDropDownItem = (command: string) => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+.global-tag-page-record {
+  color: var(--el-text-color-primary);
+  background-color: var(--el-bg-color);
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: var(--el-border-color);
+
+  .global-tag-page-record-tabs {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+
+  > div:nth-child(2) {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
 /* // 滚动条宽度 */
 div::-webkit-scrollbar {
   height: 5px;
