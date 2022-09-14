@@ -1,9 +1,15 @@
 <template>
-  <div class="!p-0">
+  <div class="gaode-map">
     <GaodeMapCom></GaodeMapCom>
   </div>
 </template>
 
 <script setup lang="ts">
-  import GaodeMapCom from '@/components/GaodeMapCom.vue'
+import GaodeMapCom from '@/components/GaodeMapCom.vue'
 </script>
+
+<style lang="less" scoped>
+.gaode-map {
+  padding: 0px !important;
+}
+</style>

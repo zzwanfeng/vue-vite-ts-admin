@@ -1,39 +1,41 @@
 <template>
-  <div>
-    <section class="flex items-center">
-      <el-upload
-        :auto-upload="false"
-        v-model:file-list="UploadFileList"
-        :multiple="false"
-        accept=".xls,.xlsx"
-        class="mr-[10px] h-[32px] w-[120px]"
-        @change="uploadFileSubmit"
-      >
-        <el-button type="primary">导入表格数据</el-button>
-      </el-upload>
+  <div class="excel-handle">
+    <el-card>
+      <section class="v-flex aic">
+        <el-upload
+          :show-file-list="false"
+          :auto-upload="false"
+          v-model:file-list="UploadFileList"
+          :multiple="false"
+          accept=".xls,.xlsx"
+          @change="uploadFileSubmit"
+        >
+          <el-button type="primary">导入表格数据</el-button>
+        </el-upload>
 
-      <el-button type="info" @click="outToExcelFile">导出Excel文件</el-button>
-    </section>
+        <el-button type="info" @click="outToExcelFile">导出Excel文件</el-button>
+      </section>
 
-    <section>
-      <VAdminTable
-        :table-header="TableHeaderData"
-        :table-content="TableContentUser"
-        :is-need-checkbox="true"
-        v-model:defaultPage="CurrentPage"
-        v-model:defaultPageSize="CurrentPageSize"
-      >
-        <template #status="{ content }">
-          <el-tag v-if="content.status === 1">正常</el-tag>
-          <el-tag v-if="content.status === 0" type="warning">禁用</el-tag>
-        </template>
+      <section>
+        <VAdminTable
+          :table-header="TableHeaderData"
+          :table-content="TableContentUser"
+          :is-need-checkbox="true"
+          v-model:defaultPage="CurrentPage"
+          v-model:defaultPageSize="CurrentPageSize"
+        >
+          <template #status="{ content }">
+            <el-tag v-if="content.status === 1">正常</el-tag>
+            <el-tag v-if="content.status === 0" type="warning">禁用</el-tag>
+          </template>
 
-        <template #operation="{ content }">
-          <el-button type="primary" size="small" @click="clickModifyColumn(content)">修改</el-button>
-          <el-button type="danger" size="small" @click="clickModifyDelete(content)">删除</el-button>
-        </template>
-      </VAdminTable>
-    </section>
+          <template #operation="{ content }">
+            <el-button type="primary" size="small" @click="clickModifyColumn(content)">修改</el-button>
+            <el-button type="danger" size="small" @click="clickModifyDelete(content)">删除</el-button>
+          </template>
+        </VAdminTable>
+      </section>
+    </el-card>
   </div>
 </template>
 
@@ -131,3 +133,6 @@ const outToExcelFile = () => {
   excelFileOut(TableContentUser.value, ['日期', '用户名', '家庭住址', '状态'], '员工信息表.xlsx', '员工')
 }
 </script>
+
+<style lang="less" scoped>
+</style>

@@ -11,7 +11,7 @@
 
     <el-card>
       <template #header> 按钮组件 </template>
-      <div class="flex flex-wrap items-center justify-start">
+      <div class="v-flex wrap aic jss">
         <el-button>Default</el-button>
         <el-button type="primary">Primary</el-button>
         <el-button type="success">Success</el-button>
@@ -45,7 +45,7 @@
 
     <el-card>
       <template #header> 表单组件 </template>
-      <el-form :model="form" label-width="120px">
+      <el-form :model="form" label-width="200px">
         <el-form-item label="Activity name">
           <el-input v-model="form.name" />
         </el-form-item>
@@ -59,9 +59,11 @@
           <el-col :span="11">
             <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%" />
           </el-col>
+
           <el-col :span="2" class="text-center">
-            <span class="text-gray-500">-</span>
+            <span class="gray-line">-</span>
           </el-col>
+
           <el-col :span="11">
             <el-time-picker v-model="form.date2" placeholder="Pick a time" style="width: 100%" />
           </el-col>
@@ -105,77 +107,82 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, reactive } from 'vue'
+import { ref, reactive } from 'vue'
 
-  const slider1 = ref(0)
-  const slider2 = ref(62)
-  const slider3 = ref(84)
-  const slider4 = ref(48)
-  const slider5 = ref(10)
-  const formatTooltip = (val: number) => {
-    return val / 100
+const slider1 = ref(0)
+const slider2 = ref(62)
+const slider3 = ref(84)
+const slider4 = ref(48)
+const slider5 = ref(10)
+const formatTooltip = (val: number) => {
+  return val / 100
+}
+
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles'
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles'
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles'
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles'
   }
+]
 
-  const tableData = [
-    {
-      date: '2016-05-03',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles'
-    },
-    {
-      date: '2016-05-02',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles'
-    },
-    {
-      date: '2016-05-04',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles'
-    },
-    {
-      date: '2016-05-01',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles'
-    }
-  ]
+const form = reactive({
+  name: '',
+  region: '',
+  date1: '',
+  date2: '',
+  delivery: false,
+  type: [],
+  resource: '',
+  desc: ''
+})
 
-  const form = reactive({
-    name: '',
-    region: '',
-    date1: '',
-    date2: '',
-    delivery: false,
-    type: [],
-    resource: '',
-    desc: ''
-  })
-
-  const onSubmit = () => {
-    console.log('submit!')
-  }
+const onSubmit = () => {
+  console.log('submit!')
+}
 </script>
 
-<style scoped>
-  .el-card:not(:last-of-type) {
-    margin-bottom: 20px;
-  }
-  .el-button {
-    margin: 8px 10px;
-  }
+<style scoped lang="less">
+.el-card:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+.el-button {
+  margin: 8px 10px;
+}
 
-  .el-carousel__item h3 {
-    color: #475669;
-    opacity: 0.75;
-    line-height: 200px;
-    margin: 0;
-    text-align: center;
-  }
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+  text-align: center;
+}
 
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
 
-  .el-carousel__item:nth-child(2n + 1) {
-    background-color: #d3dce6;
-  }
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
+
+.gray-line {
+  --tw-text-opacity: 1;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
 </style>

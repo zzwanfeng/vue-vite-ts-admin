@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="home">
     <el-card>
-      <div class="flex justify-around items-center mb-[3.5rem]">
-        <el-card class="flex-[1] mr-[1.5rem]">
+      <header class="v-flex aic jsc header">
+        <el-card>
           <template #header>
             <div>
               <span>今日订单数</span>
@@ -11,7 +11,7 @@
           <div>1888</div>
         </el-card>
 
-        <el-card class="flex-[1] mr-[1.5rem]">
+        <el-card>
           <template #header>
             <div>
               <span>今日日活</span>
@@ -20,7 +20,7 @@
           <div>36271</div>
         </el-card>
 
-        <el-card class="flex-[1]">
+        <el-card>
           <template #header>
             <div>
               <span>转化率</span>
@@ -28,10 +28,10 @@
           </template>
           <div>20%</div>
         </el-card>
-      </div>
+      </header>
 
-      <div class="flex justify-around items-center">
-        <EchartBasic class="flex-[1]" :echartOption="chartOne" :width="500" :height="400"></EchartBasic>
+      <div class="v-flex aic jsc">
+        <EchartBasic class="flex-1" :echartOption="chartOne" :width="500" :height="400"></EchartBasic>
       </div>
     </el-card>
   </div>
@@ -140,5 +140,19 @@ const chartOne: ECOption = {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+.home {
+  .header {
+    margin-bottom: 3.5rem;
+
+    .el-card {
+      flex: 1;
+      margin-right: 1.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
 </style>

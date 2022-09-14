@@ -46,7 +46,6 @@ interface ISysStoreState {
 
 export const UseSysStore = defineStore('SysStore', {
 	state(): ISysStoreState {
-		console.log('tag1', judgeIsDarkMode())
 		const SysStoreState: ISysStoreState = {
 			SysBaseConfig,
 			SysConfig: {
@@ -63,7 +62,6 @@ export const UseSysStore = defineStore('SysStore', {
 				pageTransition: 'fade-slide'
 			},
 		}
-		// console.log('tag', SysStoreState)
 
 		return SysStoreState
 	},

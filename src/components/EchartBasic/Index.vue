@@ -1,12 +1,12 @@
 <template>
   <div
+    class="echartbasic"
     :ref="
       el => {
         // @ts-ignore
         chartRef = el
       }
     "
-    class="inline-block m-[1rem]"
     :style="{ width: width + 'px', height: height + 'px' }"
   ></div>
 </template>
@@ -65,3 +65,10 @@ window.addEventListener('resize', () => {
   chartResize()
 })
 </script>
+
+<style lang="less" scoped>
+.echartbasic {
+  display: inline-block;
+  margin: 1rem;
+}
+</style>

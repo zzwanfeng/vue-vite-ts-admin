@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="echart-plugin">
     <el-card title="Echarts 图表">
-      <div class="flex justify-around items-center">
+      <div class="v-flex aic jsa">
         <EchartBasic :echartOption="chartOne" :width="500" :height="400"></EchartBasic>
         <EchartBasic :echartOption="chartTwo" :width="500" :height="400"></EchartBasic>
       </div>
-      <div class="flex justify-around items-center">
+      <div class="v-flex aic jsa">
         <EchartBasic :echartOption="chartThree" :width="500" :height="400"></EchartBasic>
       </div>
     </el-card>
@@ -182,3 +182,6 @@ const chartThree: ECOption = {
   ]
 }
 </script>
+
+<style lang="less" scoped>
+</style>

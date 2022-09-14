@@ -70,9 +70,17 @@ div:focus {
     flex-direction: column;
   }
 
+	&.wrap{
+		flex-wrap: wrap;
+	}
+
   &.wrap {
     flex-wrap: wrap;
   }
+
+	&.jsa {
+		justify-content: space-around;
+	}
 
   &.jsb {
     justify-content: space-between;
@@ -81,6 +89,10 @@ div:focus {
   &.jsc {
     justify-content: center;
   }
+
+	&.jss {
+		justify-content: flex-start;
+	}
 
   &.aic {
     align-items: center;
@@ -124,4 +136,24 @@ div:focus {
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.w100{
+	width: 100%;
+}
+
+.h100{
+	height: 100%;
+}
+
+.m0{
+	margin: 0;
+}
+
+.p0{
+	padding: 0;
+}
+
+.cursor-pointer{
+	cursor: pointer;
 }

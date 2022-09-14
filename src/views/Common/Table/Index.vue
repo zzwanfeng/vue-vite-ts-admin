@@ -21,7 +21,7 @@
         </template>
 
         <template #table-searchs>
-          <el-form :inline="true" :model="SearchForm" class="demo-form-inline">
+          <el-form :inline="true" :model="SearchForm">
             <el-form-item label="日期">
               <el-input v-model="SearchForm.date" placeholder="Please input date" />
             </el-form-item>

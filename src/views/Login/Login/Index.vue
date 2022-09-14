@@ -4,10 +4,9 @@
       <!-- 登录表单 -->
       <el-container direction="vertical" class="login-form">
         <h1 class="v-flex aic jsc">
-          <img :src="getImageUrl('SysLogo.png')" :alt="SysStore.SysBaseConfig.title" srcset="" class="w-[2rem] mr-2" />
-          <span class="text-[1rem] font-medium text-[var(--el-text-color-primary)] <2xl:(text-[1.5rem])">{{
-            SysStore.SysBaseConfig.title
-          }}</span>
+          <img :src="getImageUrl('SysLogo.png')" :alt="SysStore.SysBaseConfig.title" srcset="" />
+
+          <span>{{ SysStore.SysBaseConfig.title }}</span>
         </h1>
 
         <h1 class="text-center">登录</h1>
@@ -16,16 +15,18 @@
           <el-form-item prop="username">
             <el-input placeholder="请输入用户名" v-model="LoginModel.username" />
           </el-form-item>
+
           <el-form-item prop="password">
             <el-input placeholder="请输入密码" type="password" show-password v-model="LoginModel.password" />
           </el-form-item>
+
           <el-form-item>
-            <el-button type="primary" w:w="full" @click="onHandleLogin(LoginFormRef)">登录</el-button>
+            <el-button type="primary" class="w100" @click="onHandleLogin(LoginFormRef)">登录</el-button>
           </el-form-item>
         </el-form>
         <el-divider />
 
-        <div class="flex justify-around items-center">
+        <div class="v-flex aic jsc">
           <IconifyCom
             :name="SysStore.SysConfig.themeMode !== 'dark' ? 'emojione-v1:sun' : 'fxemoji:lastquartermoonface'"
             :width="30"
@@ -121,6 +122,8 @@ const onHandleLogin = async (FormRef: FormInstance | undefined) => {
 }
 
 .login {
+  width: 100%;
+  height: 100%;
   background: url('@/assets/img/login.jpg') 0 0 no-repeat;
   background-size: 100% 100%;
 
@@ -135,10 +138,22 @@ const onHandleLogin = async (FormRef: FormInstance | undefined) => {
       font-weight: bold;
       font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
+      &:nth-child(1) {
+        font-size: 1rem;
+        line-height: 1;
+        font-weight: 500;
+        color: var(--el-text-color-primary);
+      }
+
       &:nth-child(2) {
         font-size: 2rem;
         line-height: 1;
         margin-bottom: 1.5rem;
+      }
+
+      > img {
+        width: 2rem;
+        margin-right: 0.5rem;
       }
     }
   }

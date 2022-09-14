@@ -1,14 +1,17 @@
 <template>
   <div class="analysis-info">
     <el-card>
-      <el-row style="margin: 15px">
+      <el-row class="header">
         <el-col :span="24" class="page-title-box">
           <h4 class="page-title">Dashboard</h4>
+
           <div class="page-title-right">
             <div style="margin-right: 10px">
               <el-date-picker v-model="pickDate" type="date" placeholder="选择日期"> </el-date-picker>
             </div>
+
             <el-button :icon="Refresh" circle type="primary" style="maring-left: 10px"></el-button>
+
             <el-button :icon="Search" circle type="primary"></el-button>
           </div>
         </el-col>
@@ -32,6 +35,7 @@
                 </div>
               </el-card>
             </el-col>
+
             <el-col :lg="12">
               <el-card shadow="hover" class="card">
                 <div class="card-header">
@@ -48,6 +52,7 @@
               </el-card>
             </el-col>
           </el-row>
+
           <el-row>
             <el-col :lg="12">
               <el-card shadow="hover" class="card">
@@ -426,34 +431,39 @@ onMounted(() => {
   useInitPieChart(refAverageSales.value)
 })
 </script>
+
 <style lang="less" scoped>
 .analysis-info {
   color: black;
 
-  .page-title-box {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    color: #6c757d;
+  .header {
+    margin: 15px;
 
-    .page-title {
-      font-size: 18px;
-      margin: 0;
-      line-height: 85px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      color: inherit;
-      font-weight: 700;
-    }
-
-    .page-title-right {
+    .page-title-box {
+      box-sizing: border-box;
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
+      color: #6c757d;
+
+      .page-title {
+        font-size: 18px;
+        margin: 0;
+        line-height: 85px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: inherit;
+        font-weight: 700;
+      }
+
+      .page-title-right {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+      }
     }
   }
 

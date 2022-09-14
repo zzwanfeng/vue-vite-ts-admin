@@ -9,7 +9,7 @@
           :is="Component"
           :key="route.path"
           :style="{ height: SysStore.contentHeight }"
-          class="overflow-x-hidden p-[1rem]"
+          class="overflow-x padding-1"
         >
         </component
       ></keep-alive>
@@ -19,7 +19,7 @@
         :is="Component"
         :key="route.path"
         :style="{ height: SysStore.contentHeight }"
-        class="overflow-x-hidden p-[1rem]"
+        class="overflow-x padding-1"
       ></component>
     </transition>
   </router-view>
@@ -72,3 +72,13 @@ watchEffect(() => {
   }
 })
 </script>
+
+<style lang="less" scoped>
+.padding-1 {
+  padding: 1rem;
+}
+
+.overflow-x {
+  overflow-x: hidden;
+}
+</style>
