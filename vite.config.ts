@@ -11,8 +11,6 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import IconsResolver from 'unplugin-icons/resolver';
 import Icons from 'unplugin-icons/vite';
 
-import WindiCSS from 'vite-plugin-windicss';
-
 import { viteMockServe } from 'vite-plugin-mock';
 
 import { resolve } from 'path';
@@ -111,7 +109,6 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
 				//打开后，可以读取 ts 文件模块。 请注意，打开后将无法监视.js 文件
 				supportTs: false
 			}),
-			// WindiCSS(),
 			AutoImport({
 				// 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
 				// imports: ['vue'],

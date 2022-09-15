@@ -40,8 +40,8 @@
             :class="item.code == SysStore.SysConfig.layoutMode ? 'active-layout' : ''"
             @click="changeLayoutMode(item.code)"
           >
-            <div class="absolute bg-[#273352]" :class="item.menuClass"></div>
-            <div class="absolute bg-[#f0f2f5]" :class="item.mainClass"></div>
+            <div :class="item.menuClass"></div>
+            <div :class="item.mainClass"></div>
           </div>
         </el-tooltip>
       </div>
@@ -57,7 +57,8 @@
           @click="changePrimaryColor(item)"
         ></span>
       </div>
-      <div class="mt-[1rem]">
+
+      <div style="margin-top: 1rem">
         <el-color-picker v-model="SysStore.themeColor" @activeChange="changePrimaryColor" />
       </div>
     </GlobalSettingItem>
@@ -132,13 +133,13 @@ interface LayoutModeProps {
   mainClass: string
 }
 const LayoutModeData: LayoutModeProps[] = [
-  { label: '左侧菜单', code: 'LEFT_MENU_MODE', menuClass: 'w-1/3 h-full', mainClass: 'w-2/3 h-3/4 right-0 bottom-0' },
-  { label: '顶部菜单', code: 'TOP_MENU_MODE', menuClass: 'w-full h-1/3', mainClass: 'w-full h-2/3 bottom-0' },
+  { label: '左侧菜单', code: 'LEFT_MENU_MODE', menuClass: 'w-1-3 h100', mainClass: 'w-2-3 h-3-4 right-0 bottom-0' },
+  { label: '顶部菜单', code: 'TOP_MENU_MODE', menuClass: 'w100 h-1-3', mainClass: 'w100 h-2-3 bottom-0' },
   {
     label: '顶部混合菜单',
     code: 'TOP_MIX_MENU_MODE',
-    menuClass: 'w-full h-1/3',
-    mainClass: 'w-2/3 h-2/3 right-0 bottom-0'
+    menuClass: 'w100 h-1-3',
+    mainClass: 'w-2-3 h-2-3 right-0 bottom-0'
   }
 ]
 const changeLayoutMode = (code: SysBasicConfig.SysLayoutMode) => {
@@ -254,6 +255,18 @@ const handleClose = () => {
       border-radius: 4px;
       box-shadow: 0 1px 2.5px rgb(0 0 0 / 18%);
       background: var(--el-bg-color-page);
+
+      > div:nth-child(1) {
+        position: absolute;
+        --tw-bg-opacity: 1;
+        background-color: rgba(39, 51, 82, var(--tw-bg-opacity));
+      }
+
+      > div:nth-child(2) {
+        position: absolute;
+        --tw-bg-opacity: 1;
+        background-color: rgba(240, 242, 245, var(--tw-bg-opacity));
+      }
     }
 
     .active-layout {
@@ -309,12 +322,42 @@ const handleClose = () => {
       margin-bottom: 20px;
     }
   }
+
+  .w-1-3 {
+    width: 33.333333%;
+  }
+
+  .w-2-3 {
+    width: 66.666667%;
+  }
+
+  .h-1-3 {
+    height: 33.333333%;
+  }
+
+  .h-2-3 {
+    height: 66.666667%;
+  }
+
+  .h-3-4 {
+    height: 75%;
+  }
+
+  .right-0 {
+    right: 0px;
+  }
+
+  .bottom-0 {
+    bottom: 0px;
+  }
 }
 
-.el-color-picker,
-.el-color-picker__trigger {
+:deep(.el-color-picker) {
   width: 100% !important;
-  /* height: 36px !important; */
+}
+
+:deep(.el-color-picker__trigger) {
+  width: 100% !important;
 }
 
 .checkbox-shadow {

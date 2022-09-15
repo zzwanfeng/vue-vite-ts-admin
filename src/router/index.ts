@@ -90,7 +90,7 @@ router.beforeEach(async (to, from, next) => {
 				query: { redirect: to.fullPath }
 			})
 			SysRouteMenuStore.AllAsyncRouterRecord = []
-			SysRouteMenuStore.AllMenuRecord = []
+			SysRouteMenuStore.AllMenuRecord = createSysMenuRecord(BasicRoutes)
 			SysRouteMenuStore.IsAddAsyncRouter = false
 		}
 		NProgress.done()

@@ -3,7 +3,7 @@
     <el-card>
       <el-card class="box-card" header="" :body-style="{ fontSize: '15px' }" shadow="hover">
         <template #header>
-          <span class="text-[1.2rem] font-medium">VAdmin Plus ✨✨✨</span>
+          <span class="title">VAdmin Plus ✨✨✨</span>
         </template>
 
         <div>
@@ -14,8 +14,9 @@
 
       <el-card class="box-card" header="" :body-style="{ fontSize: '15px' }" shadow="hover">
         <template #header>
-          <span class="text-[1.2rem] font-medium">生产环境依赖 🍞🍞🍞</span>
+          <span class="title">生产环境依赖 🍞🍞🍞</span>
         </template>
+
         <el-descriptions :column="3" border size="large">
           <el-descriptions-item
             label-align="center"
@@ -32,7 +33,7 @@
 
       <el-card class="box-card" header="" :body-style="{ fontSize: '15px' }" shadow="hover">
         <template #header>
-          <span class="text-[1.2rem] font-medium">开发环境依赖 📦︎ 📦︎ 📦︎</span>
+          <span class="title">开发环境依赖 📦︎ 📦︎ 📦︎</span>
         </template>
         <el-descriptions :column="3" border size="large">
           <el-descriptions-item
@@ -90,8 +91,14 @@ Object.keys(devDependencies).forEach(key => {
 // const projectName = useGetGlobalProperties().$GlobalConfig.projectName
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .box-card:not(:last-child) {
   margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 500;
 }
 </style>

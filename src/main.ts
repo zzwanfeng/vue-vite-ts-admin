@@ -9,7 +9,6 @@ import { store } from '@/store'
 import '@/styles/Index.less'
 
 import { initDirective } from './directives'
-// import 'virtual:windi.css'
 import { GlobalConfig } from '@/config/GlobalConfig/Index'
 
 
