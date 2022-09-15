@@ -1,9 +1,10 @@
 <template>
+  <!-- 页头 面包屑 -->
   <el-breadcrumb>
     <el-breadcrumb-item v-for="(item, index) in BreadMenuData" :key="index">
-      <div class="flex items-center">
+      <div class="v-flex aic">
         <IconifyCom :name="item.icon" width="20" height="20"></IconifyCom>
-        <span class="ml-[5px]"> {{ item.label }} </span>
+        <span class="ml-5"> {{ item.label }} </span>
       </div>
     </el-breadcrumb-item>
   </el-breadcrumb>
@@ -88,3 +89,9 @@ watchEffect(() => {
   BreadMenuData.value = createBreadMenuData()
 })
 </script>
+
+<style lang="less" scoped>
+.ml-5 {
+  margin-left: 5px;
+}
+</style>

@@ -57,8 +57,4 @@ const clickLinkMenuItem = (RouterName: any) => {
 </script>
 
 <style scoped>
-/* .el-menu-item.is-active {
-    background: var(--el-color-primary);
-    color: #ffffff;
-  } */
 </style>

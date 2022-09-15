@@ -1,5 +1,6 @@
 <template>
   <GlobalHeaderItemIcon v-if="!isFullscreen" @click="toggle" label="gridicons-fullscreen"></GlobalHeaderItemIcon>
+
   <GlobalHeaderItemIcon v-else @click="toggle" label="gridicons-fullscreen-exit"></GlobalHeaderItemIcon>
 </template>
 

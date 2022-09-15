@@ -1,6 +1,4 @@
 <template>
-  <!-- background-color="rgb(0, 20, 40)" -->
-  <!-- text-color="#fff" -->
   <el-menu
     :mode="mode"
     :default-active="RouteKey"

@@ -111,7 +111,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
 				//打开后，可以读取 ts 文件模块。 请注意，打开后将无法监视.js 文件
 				supportTs: false
 			}),
-			WindiCSS(),
+			// WindiCSS(),
 			AutoImport({
 				// 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
 				// imports: ['vue'],

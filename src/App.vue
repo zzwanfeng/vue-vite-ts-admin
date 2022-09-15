@@ -1,6 +1,6 @@
 <template>
   <suspense>
-    <router-view class="w-screen h-screen max-w-screen max-h-screen overflow-hidden" />
+    <router-view class="app" />
   </suspense>
 </template>
 
@@ -17,3 +17,13 @@ watchEffect(() => {
   SysStore.setThemeColor(SysStore.SysConfig.themeColor)
 })
 </script>
+
+<style lang="less" scoped>
+.app {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+</style>

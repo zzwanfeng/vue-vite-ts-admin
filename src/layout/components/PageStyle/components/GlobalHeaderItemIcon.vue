@@ -1,5 +1,6 @@
 <template>
-  <div class="w-[2.5rem] h-full cursor-pointer text-center inline-flex justify-center items-center" id="fullScreen">
+  <!-- 页头 控制侧边栏icon -->
+  <div class="global-header-item-icon h100 cursor-pointer text-center" id="fullScreen">
     <IconifyCom :name="label" :width="16"></IconifyCom>
   </div>
 </template>
@@ -17,3 +18,13 @@ interface GlobalHeaderItemIconProps {
 
 defineProps<GlobalHeaderItemIconProps>()
 </script>
+
+<style lang="less" scoped>
+.global-header-item-icon {
+  width: 2.5rem;
+  margin-right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

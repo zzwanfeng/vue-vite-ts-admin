@@ -1,9 +1,11 @@
 <template>
-  <el-dropdown class="h-full inline-flex justify-center items-center px-3" @command="clickDropdownMenuItem">
-    <div class="cursor-pointer inline-flex justify-center items-center">
-      <el-avatar :size="25" :src="getImageUrl('UserLogo.png')" class="mr-2" />
+  <!-- 页头 右部 个人信息 -->
+  <el-dropdown class="global-sys-user-info h100" @command="clickDropdownMenuItem">
+    <div class="cursor-pointer">
+      <el-avatar :size="25" :src="getImageUrl('UserLogo.png')" />
       <span>{{ UserStore.UserInfo.nickname || '系统昵称' }}</span>
     </div>
+
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item command="SIGN_OUT">退出登录</el-dropdown-item>
@@ -34,3 +36,23 @@ const clickDropdownMenuItem = (command: string) => {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.global-sys-user-info {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  > div:nth-child(1) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    .el-avatar {
+      margin-right: 0.5rem;
+    }
+  }
+}
+</style>

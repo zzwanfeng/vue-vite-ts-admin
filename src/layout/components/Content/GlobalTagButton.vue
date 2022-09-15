@@ -1,6 +1,6 @@
 <template>
   <div class="global-tag-button h100 v-flex aic" :class="route.name === routeName ? 'tag-button-active' : ''">
-    <span class="mr-[0.5rem] cursor-pointer">{{ label }}</span>
+    <span class="cursor-pointer">{{ label }}</span>
     <IconifyCom
       v-if="route.name !== routeName"
       name="clarity:window-close-line"
@@ -44,6 +44,10 @@ const deleteHistoryMenu = (key: string) => {
   border-style: solid;
   border-radius: 0.375rem;
   border-color: var(--el-border-color);
+
+  > span:nth-child(1) {
+    margin-right: 0.5rem;
+  }
 }
 
 div.tag-button-box:hover {

@@ -4,6 +4,7 @@
     label="mdi-light:format-indent-increase"
     @click="setMenuIsCollapsed(false)"
   ></GlobalHeaderItemIcon>
+
   <GlobalHeaderItemIcon
     v-else
     label="mdi-light:format-indent-decrease"
