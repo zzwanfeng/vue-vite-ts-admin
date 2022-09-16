@@ -46,7 +46,6 @@
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import lodash from 'lodash'
 
 interface VAdminTableHeaderData {
   columnTitle: string
@@ -117,7 +116,7 @@ const changeCurrentPageSize = (value: any) => {
 }
 // 分页操作
 const showTableContent = (page: number, size: number) => {
-  const _CloneDeepTableContentData = lodash.cloneDeep(VAdminTableProps.tableContent || [])
+  const _CloneDeepTableContentData = JSON.parse(JSON.stringify(VAdminTableProps.tableContent || []))
   let ShowArray: unknown[] = []
   if (page === 1) {
     ShowArray = _CloneDeepTableContentData?.slice(0, size)

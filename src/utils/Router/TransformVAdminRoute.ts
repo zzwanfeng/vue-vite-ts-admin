@@ -4,7 +4,6 @@
 
 import type { SysRouterMenu } from 'types/SysRouterMenu'
 import { RouteRecordRaw, RouteRecordRedirectOption } from 'vue-router'
-import lodash from 'lodash'
 
 import PageView404 from '@/views/Others/404/Index.vue'
 
@@ -16,7 +15,7 @@ import { GlobFileModule } from '@/utils/Router/GlobModules'
  * @returns
  */
 const transformVAdminRouteToRouteRecordRaw = (VAdminRoutes: SysRouterMenu.VAdminRoute[]): RouteRecordRaw[] => {
-	const NeedHandleVAdminRoutes = lodash.cloneDeep(VAdminRoutes)
+	const NeedHandleVAdminRoutes = JSON.parse(JSON.stringify((VAdminRoutes)))
 
 	const SysRouterMenuRecordRawArr: RouteRecordRaw[] = []
 

@@ -15,7 +15,7 @@
 import { defineComponent, onMounted, ref } from 'vue'
 import Driver from 'driver.js'
 import 'driver.js/dist/driver.min.css'
-import steps from './Step'
+import steps from './step'
 
 export default defineComponent({
   name: 'Guide',
